@@ -9,7 +9,6 @@ function Nav() {
         <div className="pt-6">
 
             <RenderLogo />
-
             <RenderNavList />
     
         </div>
