@@ -41,7 +41,7 @@ function Card2(props:Card2Props) {
     } else { 
         return (
             <div className="group transition-all duration-200 ease-in  relative rounded-lg overflow-hidden bg-[#181818] hover:bg-[#282828]">
-            <Link to={`/artist/${data && data.id}`} state={data && data} className="block p-4">
+            <Link to={`/${data && data.type}/${data && data.id}`} state={data && data} className="block p-4">
 
                 {canDelete && 
                     <button className="absolute top-2 right-2 cursor-default rounded-full bg-black/30 p-1.5 z-10 hover:scale-110" aria-label="Remove">

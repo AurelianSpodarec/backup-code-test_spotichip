@@ -53,9 +53,8 @@ function ShowGenre() {
     
     
     async function fetchCategoriesPlaylists() {
-        
         // Fetch 12 max
-        const res = await getCategoriesPlaylists(id)
+        const res = await getCategoriesPlaylists({id})
         console.log("categories show", res.playlists)
 
         if(res.items && res.playlists.items.length === 0) {
@@ -70,8 +69,6 @@ function ShowGenre() {
         fetchCategoriesPlaylists()
     }, [])
 
-
-    
     return (
         <div>
             <div className="px-8 py-10">
@@ -90,7 +87,7 @@ function ShowGenre() {
 
                     <div className="grid gap-6 p-8 grid-cols-6">
                         <RenderGenreListing 
-                            data={genre} 
+                            data={genre}
                             fetchStatus={genreFetchStatus} 
                         />
                     </div>

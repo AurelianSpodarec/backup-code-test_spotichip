@@ -1,12 +1,15 @@
 # Spotichip
 
-# Editors Notes
+## Editors Notes
 
 
 ## Design
 
 TailwindCSS Values
 Default gutter: 8
+
+
+Maybe could add NextJS
 
 
 ## Available Scripts
