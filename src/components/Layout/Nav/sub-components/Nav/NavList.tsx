@@ -8,8 +8,12 @@ function RenderNavList() {
                 url="/" 
             />
             <NavItem 
-                name="Search" 
-                url="/search" 
+                name="Genre" 
+                url="/genre" 
+            />
+            <NavItem 
+                name="Playlists" 
+                url="/playlists" 
             />
         </ul>
     )

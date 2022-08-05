@@ -1,3 +1,66 @@
 // ==========================================================================
 // #Cheat sheet - used for quick fixed and needs to be refactored at some point
 // ==========================================================================
+
+
+
+.genre-list div {
+    
+    &:nth-of-type(1) {
+        background-color: rgb(39, 133, 106);
+    }
+    &:nth-of-type(2) {
+        background-color: rgb(30, 50, 100);
+    }
+    &:nth-of-type(3) {
+        background-color: rgb(141, 103, 171);
+    }
+    &:nth-of-type(4) {
+        background-color: rgb(232, 17, 91);
+    }
+    &:nth-of-type(5) {
+        background-color: rgb(141, 103, 171);
+    }
+    &:nth-of-type(6) {
+        background-color: rgb(30 50 100);
+    }
+
+    &:nth-of-type(7) {
+        background-color: rgb(255, 200, 100);
+    }
+    &:nth-of-type(8) {
+        background-color: rgb(141, 103, 171);
+    }
+    &:nth-of-type(9) {
+        background-color: rgb(180, 155, 200);
+    }
+    &:nth-of-type(10) {
+        background-color: rgb(186, 93, 7);
+    }
+    &:nth-of-type(11) {
+        background-color: rgb(141, 103, 171);
+    }
+    &:nth-of-type(12) {
+        background-color: rgb(175, 40, 150);
+    }
+
+    &:nth-of-type(13) {
+        background-color: rgb(80, 155, 245);
+    }
+    &:nth-of-type(14) {
+        background-color: rgb(220 20 140);
+    }
+    &:nth-of-type(15) {
+        background-color: rgb(235 54 161);
+    }
+    &:nth-of-type(16) {
+        background-color: rgb(96 129 8);
+    }
+    &:nth-of-type(17) {
+        background-color: rgb(20 138 8);
+    }
+    &:nth-of-type(18) {
+        background-color: rgb(165 103 82);
+    }
+
+}

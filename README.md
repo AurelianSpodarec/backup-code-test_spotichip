@@ -3,6 +3,10 @@
 # Editors Notes
 
 
+## Design
+
+TailwindCSS Values
+Default gutter: 8
 
 
 ## Available Scripts
