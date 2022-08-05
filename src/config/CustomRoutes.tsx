@@ -1,8 +1,12 @@
 import { useRoutes } from "react-router-dom";
 
-import Home from "views/Home/Home";
-import Browse from "views/Browse/Browse";
 import NotFound from "views/NotFound/NotFound";
+import Home from "views/Home/Home";
+
+import Browse from "views/Browse";
+
+import ListGenre from "views/Genre";
+import ShowGenre from "views/Genre/show";
 
 function CustomRoutes() {
     let element = useRoutes([
@@ -18,9 +22,14 @@ function CustomRoutes() {
             path: "/browse",
             element: <Browse />
         },
+
         {
             path: "/genre",
-            element: <Browse />
+            element: <ListGenre />
+        },
+        {
+            path: "/genre/:id",
+            element: <ShowGenre />
         }
     ]);
 
