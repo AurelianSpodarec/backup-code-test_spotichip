@@ -3,10 +3,11 @@ import { useRoutes } from "react-router-dom";
 import NotFound from "views/NotFound/NotFound";
 import Home from "views/Home/Home";
 
-import Browse from "views/Browse";
-
 import ListGenre from "views/Genre";
 import ShowGenre from "views/Genre/show";
+
+import ListPlaylist from "views/Playlist";
+import ShowPlaylist from "views/Playlist/show";
 
 function CustomRoutes() {
     let element = useRoutes([
@@ -18,19 +19,23 @@ function CustomRoutes() {
             path: "/",
             element: <Home />
         },
-        {
-            path: "/browse",
-            element: <Browse />
-        },
 
         {
             path: "/genre",
-            element: <ListGenre />
+            element:<ListGenre />
         },
         {
             path: "/genre/:id",
             element: <ShowGenre />
-        }
+        },
+        {
+            path: "/playlists",
+            element: <ListPlaylist />
+        },
+        {
+            path: "/playlist/:id",
+            element: <ShowPlaylist />
+        },
     ]);
 
     return element;
