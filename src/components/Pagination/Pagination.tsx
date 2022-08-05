@@ -1,78 +1,73 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
+import { PaginationHeader } from "./sub-components";
 
-function PaginationHeader(props:any) {
-    const { data, fetchStatus } = props
-    console.log("data", data)
 
-    if(fetchStatus === "fetching") {
-        return <>loading</>
-    } else if (fetchStatus === "success") {
-        return (
-            <div className="text-white">
-                {/* Showing {data && data.limit} of {data && data.total} results */}
-                Showing page 2 of 6 total
-            </div>
-        )
-    } else {
-        return <></>
-    }
-   
-}
 
+// TODO: Use url params to get the url
 function Pagination(props:any) {
-    const { data, fetchStatus } = props
+    const { data, fetchStatus, link } = props
 
     if(!data) <></>
 
-    let currentPage = 1;
-    let totalPages = Math.ceil(data.total / data.limit)
+    // get URL param
+
+    let [currentPage, setCurrentPage] = useState(1);
     
     let showNumberOfPages = 3;
+    let totalPages = Math.ceil(data.total / data.limit)
     
-
+    console.log(currentPage)
     function lastPage() {
 
     }
 
-    function prevPage() {
-
+    function handlePrevPage() {
+        if(currentPage === 1) return
+        setCurrentPage(currentPage - 1)
     }
 
-    function nextPage() {
-
+    function handleNextPage() {
+        if(currentPage === totalPages) return
+        setCurrentPage(currentPage + 1)
     }
 
     function pageLinks() {
-        let a = Array.from({ length: totalPages }, (_, index) => <div key={index}>{index + 1}</div>);
+        // build a url
+        let a = Array.from({ length: totalPages }, (_, index) => <Link to={`?page=${index + 1}`} key={index} className="bg-[#151515] p-4">{index + 1}</Link>);
         console.log("aaa", a)
         return a;
     }
   
     return (
         <div className="flex justify-between p-8 w-full">
-           
+            
             <PaginationHeader 
-                data={data} 
+                currentPage={currentPage}
+                totalPages={totalPages}
                 fetchStatus={fetchStatus}
             />
           
 
             <div className="flex text-white space-x-2">
 
-                <button>
-                    Prev
-                </button>
+                {currentPage !== 1 &&
+                    <button onClick={() => handlePrevPage()} className="bg-green-700 pt-4 px-6">
+                        Prev
+                    </button>
+                }
 
                     <div className="flex">
                         {pageLinks()}
-                        <span>...</span>
-                        <span>{totalPages - 1}</span>
-                        <Link to="search">{totalPages}</Link>
+                        {/* <span>...</span> */}
+                        {/* <Link to="search">{totalPages}</Link> */}
                     </div>
-
-                <button>
-                    Next
-                </button>
+                
+                {currentPage !== totalPages &&
+                    <button onClick={() => handleNextPage()} className="bg-green-700 pt-4 px-6">
+                        Next
+                    </button>
+                }
             </div>
         </div>
     )
