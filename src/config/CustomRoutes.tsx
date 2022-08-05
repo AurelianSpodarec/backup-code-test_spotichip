@@ -17,6 +17,10 @@ function CustomRoutes() {
         {
             path: "/browse",
             element: <Browse />
+        },
+        {
+            path: "/genre",
+            element: <Browse />
         }
     ]);
 
