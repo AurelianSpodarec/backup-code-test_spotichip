@@ -80,11 +80,9 @@ function ListGenre() {
     return (
         <div>
 
-            <div className="max-w-7xl mx-auto grid grid-cols-6 gap-6 genre-list">
+            <div className="max-w-7xl mx-auto grid grid-cols-6 gap-6 genre-list p-8">
                 <RenderCategoriesListing />
             </div>
-
-            <Pagination />
 
         </div>
     )
