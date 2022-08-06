@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useParams, Link, useSearchParams  } from "react-router-dom";
+import { useParams, Link, useSearchParams, useNavigate,createSearchParams  } from "react-router-dom";
 import { PaginationHeader } from "./sub-components";
 
 
@@ -7,35 +7,64 @@ function Pagination(props:any) {
     const { data, fetchStatus, link } = props
 
     let [searchParams, setSearchParams] = useSearchParams();
-    let [currentPage, setCurrentPage] = useState(1);
+    let currentPage = Number(searchParams.get("page"))
 
-    let searchPage = Number(searchParams.get("page"))
+    
+    const navigate = useNavigate();
     let searchLimit = 12
-    let offset = searchPage * searchLimit
-    let showNumberOfPageLinks = 3; 
-    let totalPages = Math.ceil(data.total / data.limit) 
-     
-     
+
+    let totalPages = Math.floor(data.total / data.limit) 
+    // let offset = currentPage * searchLimit
+    let offset = data.offset
+
     function handleLastPage() {
-        setCurrentPage(totalPages)
+        // setCurrentPage(totalPages)
     }
 
     function handlePrevPage() {
-        if(currentPage === 1) return
-        setCurrentPage(currentPage - 1)
+        // if(currentPage === 1) return
+        // setSearchParams({ 
+        //     page: String(currentPage - 1)
+        // })
     }
 
     function handleNextPage() {
-        if(currentPage === totalPages) return
-        setCurrentPage(currentPage + 1)
+        // if(currentPage === totalPages) return
+        // setSearchParams({ 
+        //     page: String(currentPage + 1)
+        // })
+
+        // setParams({
+        //     "limit": 12,
+        //     "offset": params.offset + 12
+        // })
+         setSearchParams({ 
+            page: String(Number(searchParams.get("page")) + 1)
+        })
     }
+
+    
+
+    function handlePageNumberClick(index:number) {
+        // console.log("click page",)
+        // offset = 5 * 12 = 60
+        // setParams({
+        //     "limit": 12,
+        //     "offset": index * 12
+        // })
+
+         setSearchParams({ 
+            page: String(index)
+        })
+    }
+
 
     function renderPageLinks() {
         // build a url
         return Array.from({ length: totalPages }, (_, index) => (
-            <Link to={`?page=${index + 1}`} key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
+            <button type="button" onClick={() => handlePageNumberClick(index + 1)}   key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
                 {index + 1}
-            </Link>
+            </button>
             )
         );
     }
@@ -53,7 +82,7 @@ function Pagination(props:any) {
             <div className="flex text-white space-x-2">
 
                 {currentPage !== 1 &&
-                    <button onClick={() => handlePrevPage()} className="bg-green-700 pt-4 px-6">
+                    <button type="button" onClick={() => handlePrevPage()} className="bg-green-700 px-6">
                         Prev
                     </button>
                 }
@@ -65,7 +94,7 @@ function Pagination(props:any) {
                     </div>
                 
                 {currentPage !== totalPages &&
-                    <button onClick={() => handleNextPage()} className="bg-green-700 pt-4 px-6">
+                    <button type="button" onClick={() => handleNextPage()} className="bg-green-700 px-6">
                         Next
                     </button>
                 }

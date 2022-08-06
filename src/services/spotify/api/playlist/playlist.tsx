@@ -55,13 +55,9 @@ async function getFeaturedPlaylists() {
 
 async function getCategoriesPlaylists(props?:any) {
     const { id, params } = props
-    
-    // const par = {
-    //     offset: 0,
-    //     limit: 0
-    // }
-    
-    const res = await SpotifyRequest(`browse/categories/${id}/playlists`, "GET")
+    console.log(id, params)
+    const qs = new URLSearchParams(params);
+    const res = await SpotifyRequest(`browse/categories/${id}/playlists?${qs}`, "GET")
     return res
 }
 
