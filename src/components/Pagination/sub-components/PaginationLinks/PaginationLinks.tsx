@@ -25,18 +25,26 @@ function PaginationLinks(props:any) {
 
     function renderPageLinks() {
         return Array.from({ length: totalPages }, (_, index) => (
-            <button type="button" onClick={() => handlePageNumberClick(index + 1)}   key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
-                {index + 1}
-            </button>
+            <>
+            {
+                index + 1 === currentPage ? 
+                <button type="button" aria-current="page" onClick={() => handlePageNumberClick(index + 1)} key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
+                    {index + 1}
+                </button> :
+                <button type="button" onClick={() => handlePageNumberClick(index + 1)} key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
+                    {index + 1}
+                </button> 
+            }
+            </>
             )
         );
     }
 
     return (
-        <div className="flex text-white space-x-2">
+        <nav className="flex text-white space-x-2" aria-label="Pagination">
 
             {currentPage !== 1 &&
-                <button type="button" onClick={() => handlePrevPage()} className="bg-green-700 px-6">
+                <button type="button" aria-label="Pagination: Previous page" onClick={() => handlePrevPage()} className="bg-green-700 px-6">
                     Prev
                 </button>
             }
@@ -48,11 +56,11 @@ function PaginationLinks(props:any) {
                 </div>
             
             {currentPage !== totalPages &&
-                <button type="button" onClick={() => handleNextPage()} className="bg-green-700 px-6">
+                <button type="button" aria-label="Pagination: Next Page" onClick={() => handleNextPage()} className="bg-green-700 px-6">
                     Next
                 </button>
             }
-        </div>
+        </nav>
     )
 }
 
