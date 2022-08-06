@@ -2,11 +2,21 @@
 
 ## Editors Notes
 
+https://bradfrost.com/blog/post/atomic-web-design/
+
+
+
+## Structure
+
+### App
+
+### Styles
 
 ## Design
 
 TailwindCSS Values
 Default gutter: 8
+
 
 
 Maybe could add NextJS

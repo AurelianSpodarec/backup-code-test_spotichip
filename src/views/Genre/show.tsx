@@ -40,87 +40,11 @@ function RenderGenreListing(props:any) {
 }
 
 
-function Pag({currentPage, totalPages}:any) {
-    let [searchParams, setSearchParams] = useSearchParams(); 
-    function handleNext() {
-        // fetchCategoriesPlaylists()
-        if(Number(searchParams.get("page")) === totalPages) return
-        //  setParams({
-        //     "limit": 12,
-        //     "offset": params.offset + 12
-        // })
-         setSearchParams({ 
-            page: String(Number(searchParams.get("page")) + 1)
-        })
-    }
-
-    function handleBack() {
-        // fetchCategoriesPlaylists()
-        //  setParams({
-        //     "limit": 12,
-        //     "offset": params.offset - 12
-        // })
-         setSearchParams({ 
-            page: String(Number(searchParams.get("page")) - 1)
-        })
-    }
-
-    function handlePageNumberClick(index:number) {
-        console.log("click page", index)
-
-        // setParams({
-        //     "limit": 12,
-        //     "offset": index * 12 
-        // })
-
-         setSearchParams({ 
-            page: String(index + 1)
-        })
-    }
-
-    function renderPageLinks() {
-        // build a url
-        return Array.from({ length: totalPages }, (_, index) => (
-            <button type="button" onClick={() => handlePageNumberClick(index)}   key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === Number(searchParams.get("page")) ? "border-2 border-green-700" : ""}`}>
-                {index + 1}
-            </button>
-            )
-        );
-    }
-
-    return (
-        <div className="flex justify-between items-center align-center p-8">
-        <div>
-            <p className="text-white">Showing page {currentPage} of {totalPages} total</p>    
-        </div>
-        <div className="flex text-white space-x-2">
-
-            {currentPage !== 1 &&
-                <button type="button" onClick={() => handleBack()} className="bg-green-700 px-6">
-                    Prev
-                </button>
-            }
-
-                <div className="flex">
-                    {renderPageLinks()}
-                    
-                </div>
-            
-            {currentPage !== totalPages &&
-                <button type="button" onClick={() => handleNext()} className="bg-green-700 px-6">
-                    Next
-                </button>
-            }
-        </div>
-    </div>
-    )
-}
-// TODO: Add pagination
 function ShowGenre() {
     
     const { id }:any = useParams();
-
     const pageName = id;
+
     const location = useLocation();
 
     const [genre, setGenre] = useState([]);
@@ -128,19 +52,16 @@ function ShowGenre() {
  
     let [searchParams, setSearchParams] = useSearchParams();
     let currentPage = Number(searchParams.get("page"));
-    // @ts-ignore
-    let totalPages = Math.floor(genre.total / 12) 
-    // console.log(totalPages)
-    let [offset, setoffset] = useState(0)
-    
-    let params = {
-        "limit": 12, //@ts-ignore
-        "offset": (Number(searchParams.get("page")) * 12) - 12
-    }
+  
     
     async function fetchCategoriesPlaylists() {
+
+        let params = {
+            "limit": 12,
+            "offset": (currentPage * 12) - 12
+        }
+
         const res = await getCategoriesPlaylists({id, params})
-        console.log("categories show", res.playlists)
 
         if(res.items && res.playlists.items.length === 0) {
             setGenreFetchStatus(SHOW_GENRE_STATES.failure)
@@ -149,45 +70,7 @@ function ShowGenre() {
             setGenre(res.playlists) 
         }
     }
-
-    // check page and update the page if page=6, and does not match with offset update it
-    
-    // function handleNext() {
-    //     // fetchCategoriesPlaylists()
-    //     if(Number(searchParams.get("page")) === totalPages) return
-    //      setParams({
-    //         "limit": 12,
-    //         "offset": params.offset + 12
-    //     })
-    //      setSearchParams({ 
-    //         page: String(Number(searchParams.get("page")) + 1)
-    //     })
-    // }
-
-    // function handleBack() {
-    //     // fetchCategoriesPlaylists()
-    //      setParams({
-    //         "limit": 12,
-    //         "offset": params.offset - 12
-    //     })
-    //      setSearchParams({ 
-    //         page: String(Number(searchParams.get("page")) - 1)
-    //     })
-    // }
-
-    // function handlePageNumberClick(index:number) {
-    //     console.log("click page", index)
-
-    //     setParams({
-    //         "limit": 12,
-    //         "offset": index * 12 
-    //     })
-
-    //      setSearchParams({ 
-    //         page: String(index + 1)
-    //     })
-    // }
-
+  
     useEffect(() => {
         fetchCategoriesPlaylists()
     }, [location])
@@ -196,56 +79,14 @@ function ShowGenre() {
         fetchCategoriesPlaylists()
     }, [])
 
-   
-    // function renderPageLinks() {
-    //     // build a url
-    //     return Array.from({ length: totalPages }, (_, index) => (
-    //         <button type="button" onClick={() => handlePageNumberClick(index)}   key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === Number(searchParams.get("page")) ? "border-2 border-green-700" : ""}`}>
-    //             {index + 1}
-    //         </button>
-    //         )
-    //     );
-    // }
-
     return (
         <div>
             <div className="px-8 py-10">
                 <h1 className="text-7xl font-bold uppercase text-white">{pageName}</h1>
             </div>
-
           
 
             <div className="bg-[#0b0b0b]">
- 
-
-                <Pag currentPage={currentPage} totalPages={totalPages} />
-
-                {/* <div className="flex justify-between items-center align-center p-8">
-                    <div>
-                        <p className="text-white">Showing page {currentPage} of {totalPages} total</p>    
-                    </div>
-                    <div className="flex text-white space-x-2">
-
-                        {currentPage !== 1 &&
-                            <button type="button" onClick={() => handleBack()} className="bg-green-700 px-6">
-                                Prev
-                            </button>
-                        }
-
-                            <div className="flex">
-                                {renderPageLinks()}
-                                
-                            </div>
-                        
-                        {currentPage !== totalPages &&
-                            <button type="button" onClick={() => handleNext()} className="bg-green-700 px-6">
-                                Next
-                            </button>
-                        }
-                    </div>
-                </div> */}
-               
-
 
 
                 {/* <Shelf title="Popular" className="bg-[#0b0b0b]"> */}

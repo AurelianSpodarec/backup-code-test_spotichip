@@ -6,9 +6,9 @@ function PaginationHeader(props:any) {
         return <>loading</>
     } else if (fetchStatus === "success") {
         return (
-            <div className="text-white">
+            <div className="">
                 {/* Showing {data && data.limit} of {data && data.total} results */}
-                Showing page {currentPage} of {totalPages} total
+                <span className="text-white text-xl">Showing page {currentPage} of {totalPages} total</span>
             </div>
         )
     } else {

@@ -2,26 +2,6 @@ import { Card, Pagination } from "components";
 import { useEffect, useState } from "react";
 
 import { getBrowseCategories } from "services/spotify/api/categories/categories";
-import { getCategoriesPlaylists } from "services/spotify/api/playlist/playlist";
-
-
-// 
-// Genre
-// index - show genres domain.com/genre
-// show - list genre, domain.com/genre/top-hits
- 
-// domain.com/genre
-// domain.com/genre/top-hits
-// domain.com/genre/top-hits/name
-
-// Structure
-// / Genre
-// domain.com/genre - index
-// domain.com/genre/top-hits - show
-
-// /Playlist
-// domain.com/playlists - index (show all playlists)
-// domain.com/playlist/love - show(show single playlist)
 
 
 const CATEGORIES_LIST_STATES = {
