@@ -1,8 +1,5 @@
-import { useState } from "react";
-import { useParams, Link, useSearchParams, useNavigate,createSearchParams  } from "react-router-dom";
-import { PaginationHeader } from "./sub-components";
-import PaginationLinks from "./sub-components/PaginationLinks/PaginationLinks";
-
+import { useSearchParams } from "react-router-dom";
+import { PaginationHeader, PaginationLinks } from "./sub-components";
 
 function Pagination(props:any) {
     const { data, fetchStatus } = props
