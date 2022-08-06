@@ -73,11 +73,14 @@ function ShowPlaylist() {
                         <div className="p-8">
                         {playlist && playlist.tracks.items.map((item, index) => {
                                 return (
-                                    <div className="text-white" key={index}>
+                                    <div className="flex text-white" key={index}>
 
                                         <div>{index + 1}</div>
-                                        <img className="h-10 w-10" src={item.track.album.images[0].url} />
 
+                                        <div>
+                                        <img className="h-10 w-10" src={item.track.album.images[0].url} />
+                                        </div>
+                                        
                                         <div>
                                             <h3>{item.track.album.name}</h3>
 

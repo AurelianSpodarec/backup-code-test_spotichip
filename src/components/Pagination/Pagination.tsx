@@ -5,7 +5,7 @@ function Pagination(props:any) {
     const { data, fetchStatus } = props
 
     let [searchParams, setSearchParams] = useSearchParams();
-    let currentPage = Number(searchParams.get("page"))
+    let currentPage = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1 
     let totalPages = Math.floor(data.total / data.limit) 
 
   

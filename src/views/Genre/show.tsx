@@ -58,7 +58,7 @@ function ShowGenre() {
 
         let params = {
             "limit": 12,
-            "offset": (currentPage * 12) - 12
+            "offset": currentPage === 0 ? 0 : (currentPage * 12) - 12 
         }
 
         const res = await getCategoriesPlaylists({id, params})
