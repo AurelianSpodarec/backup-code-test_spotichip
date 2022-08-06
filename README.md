@@ -12,11 +12,11 @@ https://bradfrost.com/blog/post/atomic-web-design/
 
 This goes for the entire application, weather were talking about programming/functional programming or css  
 
-### `SRC`  
+### `src`  
 
 Top level of the directory struture inside `src`  
 
-- `/components` - reusable global components, such as but not limited to button, input, card, container  
+- [`/components`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/components) - reusable global components, such as but not limited to button, input, card, container  
 - `/config` - settings for the app stores in a JS object  
 - `/context` - global Context  
 - `/hooks` - custom hooks  
