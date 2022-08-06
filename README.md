@@ -17,18 +17,18 @@ This goes for the entire application, weather were talking about programming/fun
 Top level of the directory struture inside `src`  
 
 - [`/components`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/components) - reusable global components, such as but not limited to button, input, card, container  
-- `/config` - settings for the app stores in a JS object  
-- `/context` - global Context  
-- `/hooks` - custom hooks  
-- `/routes` - applicatoin routes  
-- `/services` - stores requests and api functions  
-- `/store` - global Redux store  
-- `/styles` - stores CSS/Scss  
-- `/types` - TypeScript  
-- `/utils` - Utilities, helpers and like - used globaly withing the app  
-- `/views` - Another word for `pages` or `screens` that contains the majority of app  
-- `App`    - Used as a file that gets passed to index
-- `Index` - Connects Redux, stric mode etc...
+- [`/config`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/config) - settings for the app stores in a JS object  
+- [`/context`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/context) - global Context  
+- [`/hooks`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/hooks) - custom hooks  
+- [`/routes`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/routes) - applicatoin routes  
+- [`/services`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/services) - stores requests and api functions  
+- [`/store`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/store) - global Redux store  
+- [`/styles`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/styles) - stores CSS/Scss  
+- [`/types`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/types) - TypeScript  
+- [`/utils`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/utils) - Utilities, helpers and like - used globaly withing the app  
+- [`/views`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/views) - Another word for `pages` or `screens` that contains the majority of app  
+- [`App`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/App.tsx)    - Used as a file that gets passed to index
+- [`Index`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/index.tsx) - Connects Redux, stric mode etc...
 
 ### Views structure  
 The views structure follows a REST naming;  
