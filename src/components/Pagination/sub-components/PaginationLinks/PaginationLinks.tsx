@@ -1,6 +1,6 @@
 function PaginationLinks(props:any) {
     const { currentPage, totalPages, setSearchParams } = props
-    
+    // TODO: Extract logic into custom hook, it can be reused with other pagination layouts
     // TODO: Show three dots and implement pageNumberSize
 
     function handlePrevPage() {

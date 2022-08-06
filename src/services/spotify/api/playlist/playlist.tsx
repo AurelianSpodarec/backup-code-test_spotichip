@@ -55,19 +55,19 @@ async function getFeaturedPlaylists() {
 
 async function getCategoriesPlaylists(props?:any) {
     const { id, params } = props
-    console.log(id, params)
+
     const qs = new URLSearchParams(params);
     const res = await SpotifyRequest(`browse/categories/${id}/playlists?${qs}`, "GET")
     return res
 }
 
-async function getPlaylistCoverImage(id:string) {
-    const res = await SpotifyRequest(`playlist/${id}/images`, "GET")
+async function getCategoryPlaylist(id:string) {
+    const res = await SpotifyRequest(`browse/categories/${id}/playlists`, "GET")
     return res
 }
 
-async function getCategoryPlaylist(id:string) {
-    const res = await SpotifyRequest(`browse/categories/${id}/playlists`, "GET")
+async function getPlaylistCoverImage(id:string) {
+    const res = await SpotifyRequest(`playlist/${id}/images`, "GET")
     return res
 }
 

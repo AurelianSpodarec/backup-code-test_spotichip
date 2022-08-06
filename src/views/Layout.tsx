@@ -1,8 +1,8 @@
 import { BrowserRouter, Link, useLocation } from "react-router-dom";
 
-import { CustomRoutes } from 'config';
 import { Footer, Header, Nav } from 'components/Layout';
 import { PlayingBar } from "components";
+import CustomRoutes from "routes/CustomRoutes";
 
 
 function Layout() {

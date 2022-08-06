@@ -1,5 +1,1 @@
-import CustomRoutes from "./CustomRoutes"
-
-export {
-    CustomRoutes
-}
+// silence is golden;
