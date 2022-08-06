@@ -1,25 +1,61 @@
-# Spotichip
+# Spotichip  
 
-## Editors Notes
-
-https://bradfrost.com/blog/post/atomic-web-design/
+## Dev Notes  
 
 
+Atomic Design Principles  
 
-## Structure
-
-### App
-
-### Styles
-
-## Design
-
-TailwindCSS Values
-Default gutter: 8
+## Directory Structure  
 
 
+https://bradfrost.com/blog/post/atomic-web-design/  
 
-Maybe could add NextJS
+This goes for the entire application, weather were talking about programming/functional programming or css  
+
+### `SRC`  
+
+Top level of the directory struture inside `src`  
+
+- `/components` - reusable global components, such as but not limited to button, input, card, container  
+- `/config` - settings for the app stores in a JS object  
+- `/context` - global Context  
+- `/hooks` - custom hooks  
+- `/routes` - applicatoin routes  
+- `/services` - stores requests and api functions  
+- `/store` - global Redux store  
+- `/styles` - stores CSS/Scss  
+- `/types` - TypeScript  
+- `/utils` - Utilities, helpers and like - used globaly withing the app  
+- `/views` - Another word for `pages` or `screens` that contains the majority of app  
+- `App`    - Used as a file that gets passed to index
+- `Index` - Connects Redux, stric mode etc...
+
+### Views structure  
+The views structure follows a REST naming;  
+
+Great URL links:  
+https://github.com/adamwathan/laracon2017  
+https://www.youtube.com/watch?v=MF0jFKvS4SI  
+https://restfulapi.net/resource-naming/  
+
+## Styles  
+
+https://bradfrost.com/blog/post/atomic-web-design/  
+
+- `/lib` - third party libraries such as tailwindcss and alike  
+- `/helpers` - mixins  
+- `/base` - global styles   
+- `/layouts` - global layouts such as header, footer, navigation that are used though the app  
+- `/objects` - molecules that build components, can include button, input and so on    
+- `/components` - molecules give us building blocks to create organisms, such as: carousels, product grid, search form  
+- `cheat` - any quick fix should go to this file  
+
+
+## Design  
+
+TailwindCSS Values  
+Default gutter: 8  
+
 
 
 ## Available Scripts
@@ -56,7 +92,3 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-##

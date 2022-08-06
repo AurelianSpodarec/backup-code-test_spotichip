@@ -7,7 +7,7 @@ export default [
         element: <ListArtist />
     },
     {
-        path: "/artists/:id",
+        path: "/artist/:id",
         element: <ShowArtist />
     }
 ]

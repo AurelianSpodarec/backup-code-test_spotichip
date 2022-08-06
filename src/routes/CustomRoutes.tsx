@@ -9,8 +9,8 @@ import {
     routesGenre, 
     routesPlaylist 
 } from "./routes";
-
-
+ 
+// TODO: Add lazy loading so we don't load every single route at once
 function CustomRoutes() {
     let routes = useRoutes([
         {
