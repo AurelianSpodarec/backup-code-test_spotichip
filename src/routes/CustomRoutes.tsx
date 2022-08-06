@@ -12,7 +12,7 @@ import {
 
 
 function CustomRoutes() {
-    let element = useRoutes([
+    let routes = useRoutes([
         {
             path: "*",
             element: <NotFound />
@@ -21,7 +21,6 @@ function CustomRoutes() {
             path: "/",
             element: <Home />
         },
-
         {
             path: "/search",
             element: <ListSearch />
@@ -31,7 +30,7 @@ function CustomRoutes() {
         ...routesArtist
     ]);
 
-    return element;
+    return routes;
 }
 
 export default CustomRoutes;

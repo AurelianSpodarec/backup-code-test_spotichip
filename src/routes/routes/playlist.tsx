@@ -1,7 +1,7 @@
 import ListPlaylist from "views/Playlist";
 import ShowPlaylist from "views/Playlist/show";
 
-const routesPlaylist = [
+export default [
     {
         path: "/playlists",
         element: <ListPlaylist />
@@ -11,5 +11,3 @@ const routesPlaylist = [
         element: <ShowPlaylist />
     },
 ]
-
-export default routesPlaylist;

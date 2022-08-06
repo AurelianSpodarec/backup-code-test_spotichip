@@ -1,7 +1,7 @@
 import ListGenre from "views/Genre";
 import ShowGenre from "views/Genre/show";
 
-const routesGenre = [
+export default [
     {
         path: "/genre",
         element:<ListGenre />
@@ -11,5 +11,3 @@ const routesGenre = [
         element: <ShowGenre />
     },
 ]
-
-export default routesGenre;

@@ -1,7 +1,7 @@
 import ListArtist from "views/Artist";
 import ShowArtist from "views/Artist/show";
 
-const routesArtist = [
+export default [
     {
         path: "/artists",
         element: <ListArtist />
@@ -11,5 +11,3 @@ const routesArtist = [
         element: <ShowArtist />
     }
 ]
-
-export default routesArtist;
