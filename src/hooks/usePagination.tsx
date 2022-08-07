@@ -1,10 +1,23 @@
-import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
+import { useParams, Link, useSearchParams, useLocation } from "react-router-dom";
 
- // TODO: Show three dots and implement pageNumberSize
+// TODO: Show three dots and implement pageNumberSize
 function usePagination(data:any) {
     let [searchParams, setSearchParams] = useSearchParams();
     let currentPage = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1;
     let totalPages = Math.ceil(data.total / data.limit);
+
+
+    const location = useLocation();
+
+    // function checkPage() { 
+    //     if(totalPages < currentPage) {
+    //         setSearchParams({
+    //             page: String(1)
+    //         })
+    //     }
+    // }
+
 
     function onPrev() {
         if(currentPage === 1) return
@@ -33,7 +46,7 @@ function usePagination(data:any) {
         totalPages, 
         onNext,
         onPrev, 
-        onLink 
+        onLink
     }
 }
 

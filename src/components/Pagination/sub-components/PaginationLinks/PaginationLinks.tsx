@@ -1,6 +1,7 @@
 function PaginationLinks(props:any) {
     const { currentPage, totalPages, onNext, onPrev, onLink  } = props
     
+
     function renderPageLinks() {
         return Array.from({ length: totalPages }, (_, index) => (
             <div className="flex">
@@ -17,6 +18,8 @@ function PaginationLinks(props:any) {
             )
         );
     }
+
+ 
 
     return (
         <nav className="flex text-white space-x-2" aria-label="Pagination">

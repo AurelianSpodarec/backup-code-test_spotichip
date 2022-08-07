@@ -46,7 +46,7 @@ function RenderGenreListing(props:any) {
         return (
             <div className="text-white">
                 <h1>It looks like we couldn't find any playlist</h1>
-                <Link to={"/"}>Go back to genre</Link>
+                <Link to="/">Go back to genre</Link>
             </div>
         )
     } 
