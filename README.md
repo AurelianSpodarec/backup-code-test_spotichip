@@ -64,7 +64,7 @@ Default gutter: 8
 ## TODO
 - Add testing
 - Improve SEO
-- Auto load files 
+- Auto load files - https://www.npmjs.com/package/dot-index-webpack-plugin
 - Add meta data and title to each page that needs it, create dynamic react component - use https://www.npmjs.com/package/react-helmet
 
 ## Available Scripts

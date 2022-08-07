@@ -3,7 +3,7 @@ import { useParams, Link, useSearchParams, useLocation } from "react-router-dom"
 
 import { getCategoriesPlaylists } from "services/spotify/api/playlist/playlist";
 
-import { Card, PageHeading, Pagination, Shelf } from "components";
+import { Card, PageFooter, PageHeading, Pagination, Shelf } from "components";
 import Card2 from "components/Card2/Card2";
 import { IResCategories } from "types";
 
@@ -43,7 +43,12 @@ function RenderGenreListing(props:any) {
             )
         })
     } else if(fetchStatus === "failure") {
-        return <h1>No genre found ;-(</h1>
+        return (
+            <div className="text-white">
+                <h1>It looks like we couldn't find any playlist</h1>
+                <Link to={"/"}>Go back to genre</Link>
+            </div>
+        )
     } 
 }
 
@@ -70,8 +75,8 @@ function ShowGenre() {
         }
 
         const res = await getCategoriesPlaylists({id, params})
-
-        if(res.items && res.playlists.items.length === 0) {
+        console.log(res)
+        if(res.items || res.playlists.items.length === 0) {
             setGenreFetchStatus(SHOW_GENRE_STATES.failure)
         } else {
             setGenreFetchStatus(SHOW_GENRE_STATES.success)
@@ -106,6 +111,8 @@ function ShowGenre() {
                 <Pagination data={genre} fetchStatus={genreFetchStatus}/>
              
             </div>
+
+            <PageFooter className="bg-[#0b0b0b]" />
             
            
         </div>
