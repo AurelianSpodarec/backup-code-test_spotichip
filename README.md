@@ -1,5 +1,7 @@
 # Spotichip  
 
+Work In Progress
+
 ## Dev Notes  
 
 
@@ -23,8 +25,8 @@ Top level of the directory struture inside `src`
 - [`/routes`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/routes) - applicatoin routes  
 - [`/services`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/services) - stores requests and api functions  
 - [`/store`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/store) - global Redux store  
-- [`/styles`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/styles) - stores CSS/Scss  
-- [`/types`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/types) - TypeScript  
+- [`/styles`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/styles) - cSS/Scss  
+- [`/types`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/types) - TypeScript types
 - [`/utils`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/utils) - Utilities, helpers and like - used globaly withing the app  
 - [`/views`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/views) - Another word for `pages` or `screens` that contains the majority of app  
 - [`App`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/App.tsx)    - Used as a file that gets passed to index
@@ -40,14 +42,16 @@ https://restfulapi.net/resource-naming/
 
 ## Styles  
 
+Because the styles need to be in order when you load them, I prefer to name them with a prefix of a number, so the folder structure looks in the correct order
+
 https://bradfrost.com/blog/post/atomic-web-design/  
 
-- `/lib` - third party libraries such as tailwindcss and alike  
-- `/helpers` - mixins  
-- `/base` - global styles   
-- `/layouts` - global layouts such as header, footer, navigation that are used though the app  
-- `/objects` - molecules that build components, can include button, input and so on    
-- `/components` - molecules give us building blocks to create organisms, such as: carousels, product grid, search form  
+- `/0-lib` - third party libraries such as tailwindcss and alike  
+- `/1-helpers` - mixins  
+- `/2-base` - global styles   
+- `/3-layouts` - global layouts such as header, footer, navigation that are used though the app  
+- `/4-objects` - molecules that build components, can include button, input and so on    
+- `/5-components` - molecules give us building blocks to create organisms, such as: carousels, product grid, search form  
 - `cheat` - any quick fix should go to this file  
 
 

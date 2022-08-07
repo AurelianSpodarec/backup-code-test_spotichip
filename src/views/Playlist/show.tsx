@@ -4,21 +4,167 @@ import { useParams, Link } from "react-router-dom";
 import { getPlaylist } from "services/spotify/api/playlist/playlist";
 
 
-const PLAYLIST_LIST_STATES = {
+
+interface IPlayer {
+
+}
+
+
+
+interface IExternalURLS {
+
+}
+
+interface IArtist {
+    key: number;
+    href: string;
+    id: string;
+    name: string;
+    type: string;
+    uri: string;
+    external_urls: {
+        spotify: string;
+    },
+}
+
+interface IArtists {
+    artists: IArtist;
+    href: string;
+    id: string;
+    name: string;
+    type: string;
+    uri: string;
+}
+
+
+
+interface IImage {
+    height: number;
+    width: number;
+    url: string;
+}
+
+
+interface IAlbum {
+    album_type: string;
+    artists: [IArtists];
+    available_markets: [string];
+    external_urls: {
+        spotify: string;
+    }
+    href: string;
+    id: string;
+    images: [IImage]
+    name: string;
+    release_date: string;
+    release_date_precision: string;
+    total_tracks: number;
+    type: string;
+    uri: string;
+}
+
+interface ITrack {
+    added_at: string;
+    album: IAlbum;
+    added_by: {
+        external_urls: {
+            spotify: string;
+        },
+        href: string;
+        id: string, 
+        type: string; 
+        uri: string;
+    };
+    is_local: boolean;
+    primary_color: string;
+    track: ITrack;
+    video_thumbnail: {
+        url: string;
+    };
+    explicit?: boolean;
+    episode?: boolean;
+    duration_ms: number;
+}
+
+interface ITracks {
+    href: string;
+    album?: IAlbum;
+    items: [ITrack],
+    limit: number;
+    next: string;
+    offset: number;
+    previous: string;
+    total: number;
+}
+
+
+
+
+interface IPlaylistExternalImages {
+    
+}
+
+interface IOwner {
+    display_name: string;
+    external_urls: { 
+        spotify: string
+    }, 
+    href: string;
+    id: string; 
+    type: string;
+    url: string;
+}
+
+interface IPlaylist {
+    collaborative: boolean;
+    description: string;
+    external_urls: {
+        spotify: string;
+    }
+    followers: {
+        href: string;
+        total: number;
+    }
+    href: string;
+    id: string;
+    images: [IImage];
+    name: string;
+    owner: IOwner;
+    primary_color: string
+    public: boolean;
+    snapshot_id: string;
+    tracks: ITracks
+    type: string;
+    uri: string;
+}
+
+
+
+
+
+
+
+
+interface IFetchStatus {
+    // playlistFetchingStatus: "fetching" | "success" | "failure"
+    fetching: string;
+    success: string;
+    failure: string;
+    // fetching: 
+}
+
+const PLAYLIST_LIST_STATES:IFetchStatus = {
     fetching: 'fetching',
     success: 'success',
     failure: 'failure',
-}
-
-interface TypePlaylist {
-    name: string;
 }
 
 function ShowPlaylist() {
 
     const { id }:any = useParams();
 
-    const [playlist, setPlaylist] = useState();
+    // @ts-ignore
+    const [playlist, setPlaylist] = useState<IPlaylist>(undefined);
     const [playlistFetchStatus, setPlaylistFetchStatus] = useState(PLAYLIST_LIST_STATES.fetching)
     
     async function fetchPlaylist() {
@@ -32,9 +178,7 @@ function ShowPlaylist() {
         }
     }
 
- 
-
-    // Into its own component
+    // TODO: Extract Into its own component
     function RenderGenreListing() {
         if(playlistFetchStatus === "fetching") {
             return (
@@ -71,7 +215,7 @@ function ShowPlaylist() {
                     <section>
 
                         <div className="p-8">
-                        {playlist && playlist.tracks.items.map((item, index) => {
+                        {playlist && playlist.tracks.items.map((item:ITrack, index:number) => {
                                 return (
                                     <div className="flex text-white" key={index}>
 
@@ -96,9 +240,9 @@ function ShowPlaylist() {
                                                 </div>
                                             }
 
-                                            {item.track.album.artists.map((artist, index) => {
+                                            {item.track.album.artists.map((artist:IArtists) => {
                                                 return (
-                                                    <Link to={`/artist/${artist.id}`}>
+                                                    <Link key={artist.id} to={`/artist/${artist.id}`}>
                                                         <span>{artist.name}, </span>
                                                     </Link>
                                                 )
