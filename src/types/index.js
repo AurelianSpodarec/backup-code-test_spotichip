@@ -3,6 +3,7 @@ import { IArtist, IArtists } from "./IArtist";
 import { IImage } from "./IImage";
 import { IOwner } from "./IOwner";
 import { IPlaylist } from "./IPlaylist";
+import { IResCategories } from "./IResCategories";
 import { ITrack, ITracks } from "./ITrack";
 
 export {
@@ -12,6 +13,7 @@ export {
     IImage,
     IOwner,
     IPlaylist,
+    IResCategories,
     ITrack,
     ITracks
 }

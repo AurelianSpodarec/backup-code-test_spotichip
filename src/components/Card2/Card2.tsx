@@ -13,7 +13,7 @@ interface Card2Props {
             }
         ];
     };
-    fetchStatus: string;
+    fetchStatus?: string;
 }
 
 function Card2(props:Card2Props) {

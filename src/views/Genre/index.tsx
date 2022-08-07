@@ -1,7 +1,9 @@
-import { Card, Pagination } from "components";
+import { Card, Pagination, Shelf } from "components";
 import { useEffect, useState } from "react";
 
 import { getBrowseCategories } from "services/spotify/api/categories/categories";
+import { IResCategories } from "types";
+
 
 
 const CATEGORIES_LIST_STATES = {
@@ -11,8 +13,7 @@ const CATEGORIES_LIST_STATES = {
 }
 
 function ListGenre() {
-
-    const [categories, setCategories] = useState([]);
+    const [categories, setCategories] = useState<IResCategories>({});
     const [categoriesFetchStatus, setCategoriesFetchStatus] = useState(CATEGORIES_LIST_STATES.fetching)
 
     async function fetchCategories() {
@@ -34,7 +35,7 @@ function ListGenre() {
     // TODO: Extract into component later
     function RenderCategoriesListing() {
         if(categoriesFetchStatus === "fetching") {
-            return [...Array(9)].map((_, index) => {
+            return [...Array(18)].map((_, index) => {
                 return ( 
                     <Card
                         key={index}
@@ -42,7 +43,7 @@ function ListGenre() {
                     />
                 )
             })
-        } else if (categoriesFetchStatus === "success") {
+        } else if (categoriesFetchStatus === "success") { // @ts-ignore
             return categories && categories.items.map((category:{}, index:number) => {
                 return (
                 <Card
@@ -53,18 +54,16 @@ function ListGenre() {
                 )
             })
         } else if(categoriesFetchStatus === "failure") {
-            return <h1>No categories found ;-(</h1>
+            return <h1>No Genre found ;-(</h1>
         } 
     }
 
     return (
-        <div>
-
-            <div className="max-w-7xl mx-auto grid grid-cols-6 gap-6 genre-list p-8">
-                <RenderCategoriesListing />
-            </div>
-
-        </div>
+        <Shelf className="genre-list">
+            { 
+            //@ts-ignore
+            } <RenderCategoriesListing />
+        </Shelf>
     )
 }
 

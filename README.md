@@ -57,10 +57,15 @@ https://bradfrost.com/blog/post/atomic-web-design/
 
 ## Design  
 
-TailwindCSS Values  
+Spotify TailwindCSS Values  
 Default gutter: 8  
 
 
+## TODO
+- Add testing
+- Improve SEO
+- Auto load files 
+- Add meta data and title to each page that needs it, create dynamic react component
 
 ## Available Scripts
 

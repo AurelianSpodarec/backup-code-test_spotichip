@@ -1,4 +1,4 @@
-import { Card } from "components";
+import { Card, Shelf } from "components";
 import { useEffect, useState } from "react";
 import { getFeaturedPlaylists } from "services/spotify/api/playlist/playlist";
 
@@ -57,13 +57,11 @@ function ListPlaylist() {
     }
 
     return (
-        <div>
-
-            <div className="max-w-7xl mx-auto grid grid-cols-6 gap-6 p-8">
-                <RenderCategoriesListing />
-            </div>
-
-        </div>
+        <Shelf>
+            { 
+            //@ts-ignore
+            } <RenderCategoriesListing />
+        </Shelf>
     )
 }
 

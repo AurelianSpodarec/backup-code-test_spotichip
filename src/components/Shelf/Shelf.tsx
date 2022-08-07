@@ -30,8 +30,8 @@ function Shelf(props:Props) {
                 </div>
                 </header>
             }
-
-            <section className="px-8">
+            
+            <section className="grid gap-6 p-8 grid-cols-6">
                 {children}
             </section>
         </div>

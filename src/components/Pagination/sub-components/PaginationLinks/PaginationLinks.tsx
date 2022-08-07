@@ -25,17 +25,17 @@ function PaginationLinks(props:any) {
 
     function renderPageLinks() {
         return Array.from({ length: totalPages }, (_, index) => (
-            <>
+            <div className="flex">
             {
                 index + 1 === currentPage ? 
-                <button type="button" aria-current="page" onClick={() => handlePageNumberClick(index + 1)} key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
+                <button type="button" key={index} aria-current="page" onClick={() => handlePageNumberClick(index + 1)} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
                     {index + 1}
                 </button> :
-                <button type="button" onClick={() => handlePageNumberClick(index + 1)} key={index} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
+                <button type="button" key={index} onClick={() => handlePageNumberClick(index + 1)} className={`bg-[#151515] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
                     {index + 1}
                 </button> 
             }
-            </>
+            </div>
             )
         );
     }
@@ -48,13 +48,9 @@ function PaginationLinks(props:any) {
                     Prev
                 </button>
             }
-
-                <div className="flex">
-                    {renderPageLinks()}
-                    {/* <span>...</span> */}
-                    {/* <Link to="search">{totalPages}</Link> */}
-                </div>
-            
+ 
+            {renderPageLinks()}
+              
             {currentPage !== totalPages &&
                 <button type="button" aria-label="Pagination: Next Page" onClick={() => handleNextPage()} className="bg-green-700 px-6">
                     Next
