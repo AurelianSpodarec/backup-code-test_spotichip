@@ -1,0 +1,40 @@
+import { useSearchParams } from "react-router-dom";
+
+ // TODO: Show three dots and implement pageNumberSize
+function usePagination(data:any) {
+    let [searchParams, setSearchParams] = useSearchParams();
+    let currentPage = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1;
+    let totalPages = Math.ceil(data.total / data.limit);
+
+    function onPrev() {
+        if(currentPage === 1) return
+        setSearchParams({ 
+            page: String(currentPage - 1)
+        })
+    }
+
+    function onNext() {
+        if(currentPage === totalPages) return
+         setSearchParams({ 
+            page: String(currentPage + 1)
+        })
+    }
+
+    function onLink(index:number) {
+         setSearchParams({ 
+            page: String(index)
+        })
+    }
+
+    return { 
+        searchParams, 
+        setSearchParams, 
+        currentPage, 
+        totalPages, 
+        onNext,
+        onPrev, 
+        onLink 
+    }
+}
+
+export default usePagination;

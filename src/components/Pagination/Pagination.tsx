@@ -1,27 +1,28 @@
 import { useSearchParams } from "react-router-dom";
 import { PaginationHeader, PaginationLinks } from "./sub-components";
+import { usePagination } from "hooks";
 
 function Pagination(props:any) {
     const { data, fetchStatus } = props
 
-    let [searchParams, setSearchParams] = useSearchParams();
-    let currentPage = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1 
-    let totalPages = Math.floor(data.total / data.limit) 
+    const pagination = usePagination(data)
 
-  
     return (
         <div className="flex items-center justify-between p-8 w-full">
             
             <PaginationHeader 
-                currentPage={currentPage}
-                totalPages={totalPages}
+                currentPage={pagination.currentPage}
+                totalPages={pagination.totalPages}
                 fetchStatus={fetchStatus}
             />
-            <PaginationLinks 
-                currentPage={currentPage}
-                totalPages={totalPages}
+            <PaginationLinks
+                onNext={pagination.onNext}
+                onPrev={pagination.onPrev}
+                onLink={pagination.onLink}
+                currentPage={pagination.currentPage}
+                totalPages={pagination.totalPages}
                 fetchStatus={fetchStatus}
-                setSearchParams={setSearchParams}
+                setSearchParams={pagination.setSearchParams}
             />
 
         </div>

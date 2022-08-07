@@ -1,1 +1,5 @@
-// silence is golden;
+import usePagination from "./usePagination";
+
+export {
+    usePagination
+}

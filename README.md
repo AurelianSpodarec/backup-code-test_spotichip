@@ -65,7 +65,7 @@ Default gutter: 8
 - Add testing
 - Improve SEO
 - Auto load files 
-- Add meta data and title to each page that needs it, create dynamic react component
+- Add meta data and title to each page that needs it, create dynamic react component - use https://www.npmjs.com/package/react-helmet
 
 ## Available Scripts
 
