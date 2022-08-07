@@ -35,16 +35,16 @@ function ListGenre() {
     function RenderCategoriesListing() {
         if(categoriesFetchStatus === "fetching") {
             return [...Array(9)].map((_, index) => {
-                return ( // @ts-ignore
+                return ( 
                     <Card
                         key={index}
                         fetchStatus={categoriesFetchStatus}
                     />
                 )
             })
-        } else if (categoriesFetchStatus === "success") {//@ts-ignore
+        } else if (categoriesFetchStatus === "success") {
             return categories && categories.items.map((category:{}, index:number) => {
-                return (// @ts-ignore
+                return (
                 <Card
                     key={index}
                     item={category} 
