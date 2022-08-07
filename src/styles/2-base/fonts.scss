@@ -1,0 +1,54 @@
+// ==========================================================================
+// # Fonts
+// ==========================================================================
+//
+//
+//  - CircularSp
+//
+//
+
+
+// # Fonts: CircularSp
+// ==========================================================================
+
+
+@font-face{
+    font-family: CircularSp;
+    src:
+        url(./../../../src/fonts/CircularSp/CircularSp-Bold.woff2) format("woff2");
+        // url(./../../../src/fonts/CircularSp/CircularSp-Bold.woff) format("woff");
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap
+}
+
+// TODO: Figure out what font weights the below are
+// @font-face{
+//     font-family: CircularSp;
+//     src:
+//         url(./../../../src/fonts/CircularSp/CircularSp-Book.woff2) format("woff2");
+//         // url(./../../../src/fonts/CircularSp/CircularSp-Bold.woff) format("woff");
+//     font-style: normal;
+//     font-weight: 700; 
+//     font-display: swap
+// }
+
+// @font-face{
+//     font-family: CircularSp;
+//     src:
+//         url(./../../../src/fonts/CircularSp/CircularSp-TitleBlack.woff2) format("woff2");
+//         // url(./../../../src/fonts/CircularSp/CircularSp-Bold.woff) format("woff");
+//     font-style: normal;
+//     font-weight: 700; 
+//     font-display: swap
+// }
+
+// @font-face{
+//     font-family: CircularSp;
+//     src:
+//         url(./../../../src/fonts/CircularSp/CircularSp-Title.woff2) format("woff2");
+//         // url(./../../../src/fonts/CircularSp/CircularSp-Bold.woff) format("woff");
+//     font-style: normal;
+//     font-weight: 700; 
+//     font-display: swap
+// }
