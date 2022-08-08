@@ -138,12 +138,14 @@ function ListSearch() {
             }
 
 
-            {search && search.recentSearches.length !== 0 && 
-                    <RenderRecentSearch  />
-            }
+          
 
             {search.category === "" &&
             <>
+
+                {search && search.recentSearches.length !== 0 && 
+                        <RenderRecentSearch  />
+                }
 
                 <Shelf title="Browse all" className="genre-list">
                     <RenderCategoriesListing />
