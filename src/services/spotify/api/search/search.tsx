@@ -10,8 +10,10 @@ async function searchRequest(input:string, category:string) {
     }
     const qs = new URLSearchParams(params);
 
-    const res = await SpotifyRequest(`search?${qs}`)
-    return res;
+    if(input === "" && category === "") {
+        return await SpotifyRequest(`search`)
+    }
+    return  await SpotifyRequest(`search?${qs}`)
 }
 
 async function getArtists() {

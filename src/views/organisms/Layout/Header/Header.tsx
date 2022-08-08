@@ -48,11 +48,13 @@ function Header() {
             <div className="flex items-center">
                 <HistoryButtons />
 
-                <SearchBar 
-                    search={search} 
-                    onValueChange={onValueChange} 
-                    handleClearSearch={handleClearSearch} 
-                />
+                {location.pathname === "/search" &&
+                    <SearchBar 
+                        search={search} 
+                        onValueChange={onValueChange} 
+                        handleClearSearch={handleClearSearch} 
+                    />
+                }
 
             </div>
 

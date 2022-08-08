@@ -25,7 +25,6 @@ function ArtistList(props:any) {
                 />
             )
         })
-            
     } else if(fetchStatus === "failure") {
         return (
             <h1 className="text-red-500">No categories found ;-(</h1>

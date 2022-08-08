@@ -7,7 +7,7 @@ import { getBrowseCategories } from "services/spotify/api/categories/categories"
 
 import { Card, Card2, Shelf } from "views/molecules";
 import ArtistList from "../Artist/sub-components/index/ArtistList";
-import ListPlaylist from "../Playlist/sub-components/index/ListPlaylist";
+import RenderPlaylist from "../Playlist/sub-components/index/RenderPlaylist";
 
 
 const SEARCHES_LIST_STATES = {
@@ -23,6 +23,7 @@ function ListSearch() {
     const [searches, setSearches] = useState([])
     const [searchesFetchStatus, setSearchesFetchStatus] = useState(SEARCHES_LIST_STATES.fetching)
 
+    // TODO: Refactor
 
     async function fetchCategories() { 
         const res = await getBrowseCategories();
@@ -33,6 +34,14 @@ function ListSearch() {
             setSearchesFetchStatus(SEARCHES_LIST_STATES.success)
             setSearches(res) 
         }
+    }
+
+     // TODO: Add infinite scroll
+    function onLoadMore() {
+        // On scrolling at the end of the window
+        //  - Offset the params by 12
+        //  - push the objects to state
+        //  - create a custom hook to get
     }
 
     function setCategory(category:any) {
@@ -50,7 +59,7 @@ function ListSearch() {
 
                     {configCategories && configCategories.map((category, index) => {
                         return (
-                            <button onClick={() => setCategory(category)} key={index} className={`${search.category === category.slug ? "text-black bg-white" : "text-white bg-[#232323]"} ${index === 0 && "mr-4"} inline-block py-1 px-3 rounded-2xl `}>
+                            <button onClick={() => setCategory(category)} key={index} className={`${search.category === category.slug ? "text-black bg-white" : "text-white bg-[#232323]"} inline-block py-1 px-3 rounded-2xl `}>
                                 <span className="font-semibold text-sm">{category.name}</span>
                             </button>
                         )
@@ -105,16 +114,18 @@ function ListSearch() {
         )
     }
 
-
-    useEffect(() => {
-        fetchCategories()
-
+    function clearSearch() {
         if(search.input === "") {
             dispatch(setSearchCategory(""))
 
             const nextURL = `http://localhost:3000/search`;
             window.history.replaceState(null, "", nextURL)
         }
+    }
+
+    useEffect(() => {
+        fetchCategories()
+        clearSearch()
     }, [searchesFetchStatus])
 
     return (
@@ -124,7 +135,6 @@ function ListSearch() {
                 <RenderCategoriesOptions />
             }
             
-       
             {search.category === "artist" && 
                 <Shelf>
                     <ArtistList data={search.data} fetchStatus="success"/>
@@ -133,12 +143,9 @@ function ListSearch() {
 
             {search.category === "playlist" && 
                 <Shelf>
-                    <ListPlaylist data={search.data} fetchStatus="success"/>
+                    <RenderPlaylist data={search.data.playlists} fetchStatus="success"/>
                 </Shelf>
             }
-
-
-          
 
             {search.category === "" &&
             <>
@@ -147,12 +154,13 @@ function ListSearch() {
                         <RenderRecentSearch  />
                 }
 
-                <Shelf title="Browse all" className="genre-list">
+                <Shelf title="Browse all" contentClassName="genre-list">
                     <RenderCategoriesListing />
                 </Shelf>
                 
             </>
             }
+
         </div>
     )
 }

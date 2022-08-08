@@ -1,41 +1,72 @@
+import { Link } from "react-router-dom";
+
+function PagLink({currentPage,onLink, pathName, href, children}:any) {
+
+    return (
+        <li>
+        <Link onClick={(e) => onLink} to={`${pathName}?page=${href}`} className={`bg-[#151515] flex align-center justify-center items-center rounded cursor-default w-14 h-14  ${currentPage === children ? "border-2 border-green-700" : ""}`}>
+            {children}
+        </Link> 
+        </li>
+    )
+}
+
 function PaginationLinks(props:any) {
-    const { currentPage, totalPages, onNext, onPrev, onLink  } = props
+    const { currentPage, totalPages, onNext, onPrev, onLink, pathName  } = props
     
-     
-    const pageLimit = 7
-    const getPaginationGroup = () => {
-        let start = Math.floor((currentPage - 1) / 7) * 7;
-        return Array.from([1,2,3,4,5,6,7]).map((_, index) => (
-            start + index + 1
-        ));
-      };
-   
+ 
     function renderPageLinks() {
-        return getPaginationGroup().map((item, index) => (
-            <div className="flex">
-            
-           
-                {/* {index + 1 === currentPage ?  */}
+        return (
+            <ul className="flex">
 
-                    {currentPage + 1 !<= totalPages ? 
+            {/* For loop 3 items */}
+            {/* 
+                // TODO: Refactor
+                Page Number Size: 3 (displays 3 links)
+                // Before 
 
-                        <>
-                            {index + 1 === currentPage ?
-                            <button type="button" key={index} aria-current="page" onClick={() => onLink(index + 1 + currentPage - 1)} className={`bg-[#151515] rounded cursor-default w-14 h-14  ${index + 1 + currentPage - 1 === currentPage ? "border-2 border-green-700" : ""}`}>
-                                {index + 1 + currentPage - 1}
-                            </button> :
-                            <button type="button" key={index} onClick={() => onLink(index + 1 + currentPage - 1)} className={`bg-[#151515] rounded hover:bg-[#2f2f2f] w-14 h-14  ${index + 1 + currentPage - 1 === currentPage ? "border-2 border-green-700" : ""}`}>
-                                {index + 1 + currentPage - 1}
-                            </button> 
-                            }
-                        </>
 
-                    : ""
-                // {/* } */}
-            }
+                // Siblings -2 0 +2 on each side
+            */}
 
-            </div>
-            )
+  
+                {/* Right + 2 */}
+                {currentPage === totalPages && totalPages > 2 && (
+                    <PagLink onLink={currentPage - 2} currentPage={currentPage} pathName={pathName} href={currentPage - 2}>
+                        {currentPage - 2}
+                    </PagLink>
+                )}
+
+                {/* Right */}
+                {currentPage > 1 && (
+                    <PagLink onLink={currentPage - 1} currentPage={currentPage} pathName={pathName} href={currentPage - 1}>
+                        {currentPage - 1}
+                    </PagLink>
+                )}
+
+                
+                {/* Middle */}
+                {currentPage > 0 && (
+                    <PagLink onLink={currentPage} currentPage={currentPage} pathName={pathName} href={currentPage}>
+                        {currentPage}
+                    </PagLink>
+                )}
+
+                {/* Left */}
+                {currentPage > 0 && currentPage < totalPages && (
+                    <PagLink onLink={currentPage + 1} currentPage={currentPage} pathName={pathName} href={currentPage + 1}>
+                        {currentPage + 1}
+                    </PagLink>
+                )}
+
+                {/* Left + 2*/}
+                {currentPage === 1 && totalPages > 2 && (
+                    <PagLink onLink={currentPage + 2} currentPage={currentPage} pathName={pathName} href={currentPage + 2}>
+                        {currentPage + 2}
+                    </PagLink>
+                )}
+          
+            </ul>
         );
     }
  

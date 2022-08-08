@@ -1,8 +1,18 @@
 import { Link } from "react-router-dom";
 
+interface Props {
+    title?: string;
+    titleLink?: string;
+    description?: string;
+    link?: string;
+    linkText?: string;
+    children?: any;
+    className?: string;
+    contentClassName?: string;
+}
 
 function Shelf(props:Props) {
-    const { title, titleLink, description, link, linkText, children, className } = props;
+    const { title, titleLink, description, link, linkText, children, className, contentClassName } = props;
 
     return (
         <div className={className}>
@@ -31,7 +41,7 @@ function Shelf(props:Props) {
                 </header>
             }
             
-            <section className="grid gap-6 grid-cols-2 lg:grid-cols-6 p-8">
+            <section className={`grid gap-6 grid-cols-2 lg:grid-cols-6 p-8 ${contentClassName} `}>
                 {children}
             </section>
         </div>
@@ -39,13 +49,3 @@ function Shelf(props:Props) {
 }
 
 export default Shelf;
-
-interface Props {
-    title?: string;
-    titleLink?: string;
-    description?: string;
-    link?: string;
-    linkText?: string;
-    children?: any;
-    className?: string;
-}

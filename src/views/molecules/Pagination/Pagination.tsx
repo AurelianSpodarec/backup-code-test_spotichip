@@ -23,6 +23,7 @@ function Pagination(props:any) {
                 totalPages={pagination.totalPages}
                 fetchStatus={fetchStatus}
                 setSearchParams={pagination.setSearchParams}
+                pathName={pagination.pathName}
             />
 
         </div>

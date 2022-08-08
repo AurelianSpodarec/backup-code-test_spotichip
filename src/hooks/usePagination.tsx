@@ -7,9 +7,10 @@ function usePagination(data:any) {
     let currentPage = Number(searchParams.get("page")) ? Number(searchParams.get("page")) : 1;
     let totalPages = Math.ceil(data.total / data.limit);
 
-
     const location = useLocation();
+    let pathName = location.pathname;
 
+    // TODO: If page number in URL is higher than the page exist, set it to 1
     // function checkPage() { 
     //     if(totalPages < currentPage) {
     //         setSearchParams({
@@ -17,7 +18,6 @@ function usePagination(data:any) {
     //         })
     //     }
     // }
-
 
     function onPrev() {
         if(currentPage === 1) return
@@ -33,8 +33,9 @@ function usePagination(data:any) {
         })
     }
 
-    function onLink(index:number) {
-         setSearchParams({ 
+    function onLink(e:any, index:number) {
+        e && e.preventDefault();
+        setSearchParams({ 
             page: String(index)
         })
     }
@@ -46,7 +47,9 @@ function usePagination(data:any) {
         totalPages, 
         onNext,
         onPrev, 
-        onLink
+        onLink,
+        location,
+        pathName
     }
 }
 
