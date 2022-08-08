@@ -36,14 +36,15 @@ Commit message could look like the following:
 The actual files of a software projects are stored in the `src` folder. 
 
 The project UI and views rely on Atomic desing principle by [Brad Frosts - Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/)  
-[Atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms)   
-[Molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules)  
-[Organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms)  
-[Pages](https://atomicdesign.bradfrost.com/chapter-2/#pages)  
+[Atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms) - Building blocks
+[Molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules) - Small component
+[Organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms) - Complex component
+[Pages](https://atomicdesign.bradfrost.com/chapter-2/#pages) - A web page
 
 ### src
 
-```/src
+```
+/src
 ├── /config         # Text for the app
 ├── /context   
 ├── /hooks    
@@ -54,7 +55,7 @@ The project UI and views rely on Atomic desing principle by [Brad Frosts - Atomi
 ├── /types  
 ├── /utils          # Common used functions
 ├── /views          # Anything to do with UI  
-│   ├── atoms]      # Used for building blocks i.e button, input   
+│   ├── atoms       # Used for building blocks i.e button, input   
 │   └── molecules   # Made from atoms i.e search bar  
 │   └── organisms   # Complex UI components i.e carousel   
 │   └── pages       # Respresents a page  
