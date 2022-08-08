@@ -1,5 +1,5 @@
-import ListArtist from "views/Artist";
-import ShowArtist from "views/Artist/show";
+import ListArtist from "views/pages/Artist"
+import ShowArtist from "views/pages/Artist/show"
 
 export default [
     {

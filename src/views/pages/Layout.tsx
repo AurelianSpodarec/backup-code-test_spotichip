@@ -1,9 +1,9 @@
 import { BrowserRouter, Link, useLocation } from "react-router-dom";
 
-import { Footer, Header, Nav } from 'components/Layout';
-import { PlayingBar } from "components";
 import CustomRoutes from "routes/CustomRoutes";
 
+import { PlayingBar } from "../molecules";
+import { Footer, Header, Nav } from "../organisms/Layout";
 
 function Layout() {
     return (

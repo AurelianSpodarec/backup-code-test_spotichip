@@ -3,9 +3,11 @@ import { useParams, Link, useSearchParams, useLocation } from "react-router-dom"
 
 import { getCategoriesPlaylists } from "services/spotify/api/playlist/playlist";
 
-import { Card, PageFooter, PageHeading, Pagination, Shelf } from "components";
-import Card2 from "components/Card2/Card2";
 import { IResCategories } from "types";
+
+import { Card2, Pagination, Shelf } from "views/molecules";
+import { PageFooter, PageHeading } from "views/organisms";
+
 
 
 const SHOW_GENRE_STATES = {

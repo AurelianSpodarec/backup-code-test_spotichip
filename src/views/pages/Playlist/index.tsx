@@ -1,8 +1,10 @@
-import { Card, Shelf } from "components";
-import Card2 from "components/Card2/Card2";
 import { useEffect, useState } from "react";
+
 import { getFeaturedPlaylists } from "services/spotify/api/playlist/playlist";
 import { IPlaylist } from "types";
+
+import {  Card2, Shelf } from "views/molecules";
+
 
 const PLAYLISTS_LIST_STATES = {
     fetching: 'fetching',

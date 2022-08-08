@@ -1,8 +1,8 @@
 import { useRoutes } from "react-router-dom";
 
-import NotFound from "views/NotFound/NotFound";
-import Home from "views/Home/Home";
-import ListSearch from "views/Search";
+import NotFound from "views/pages/NotFound/NotFound";
+import Home from "views/pages/Home/Home";
+import ListSearch from "views/pages/Search";
 
 import routesArtist from "./routes/artist";
 import routesGenre from "./routes/genre";

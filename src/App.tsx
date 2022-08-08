@@ -1,4 +1,4 @@
-import Layout from 'views/Layout';
+import Layout from 'views/pages/Layout';
 
 function App() {
     return <Layout />

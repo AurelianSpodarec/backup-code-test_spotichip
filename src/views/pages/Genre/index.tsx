@@ -1,9 +1,9 @@
-import { Card, Pagination, Shelf } from "components";
 import { useEffect, useState } from "react";
+
+import { Card, Pagination, Shelf } from "views/molecules";
 
 import { getBrowseCategories } from "services/spotify/api/categories/categories";
 import { IResCategories } from "types";
-
 
 
 const CATEGORIES_LIST_STATES = {

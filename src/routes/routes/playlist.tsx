@@ -1,5 +1,5 @@
-import ListPlaylist from "views/Playlist";
-import ShowPlaylist from "views/Playlist/show";
+import ListPlaylist from "views/pages/Playlist";
+import ShowPlaylist from "views/pages/Playlist/show";
 
 export default [
     {
@@ -9,13 +9,5 @@ export default [
     {
         path: "/playlist/:id",
         element: <ShowPlaylist />
-    },
-    // {
-    //     path: "/browse/featured-playlists",
-    //     element: <ShowPlaylist />
-    // }
-    // {
-    //     path: "/users/:id/playlists",
-    //     element: <CreatePlaylist />
-    // },
+    }
 ]

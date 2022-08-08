@@ -1,5 +1,5 @@
-import ListGenre from "views/Genre";
-import ShowGenre from "views/Genre/show";
+import ListGenre from "views/pages/Genre";
+import ShowGenre from "views/pages/Genre/show";
 
 export default [
     {
