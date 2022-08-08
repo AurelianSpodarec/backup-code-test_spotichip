@@ -1,24 +1,26 @@
 function PaginationLinks(props:any) {
     const { currentPage, totalPages, onNext, onPrev, onLink  } = props
     
-
+   
     function renderPageLinks() {
-        return Array.from({ length: totalPages }, (_, index) => (
+        return Array.from({ length: 7 }, (_, index) => (
             <div className="flex">
-            {
-                index + 1 === currentPage ? 
-                <button type="button" key={index} aria-current="page" onClick={() => onLink(index + 1)} className={`bg-[#151515] rounded cursor-default w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
-                    {index + 1}
-                </button> :
-                <button type="button" key={index} onClick={() => onLink(index + 1)} className={`bg-[#151515] rounded hover:bg-[#2f2f2f] w-14 h-14  ${index + 1 === currentPage ? "border-2 border-green-700" : ""}`}>
-                    {index + 1}
-                </button> 
+            {   
+           
+                index + 1 === currentPage && currentPage <= totalPages && currentPage > 0? 
+                 
+                    <button type="button" key={index} aria-current="page" onClick={() => onLink(index + 1 + currentPage - 1)} className={`bg-[#151515] rounded cursor-default w-14 h-14  ${index + 1 + currentPage - 1 === currentPage ? "border-2 border-green-700" : ""}`}>
+                        {index + 1 + currentPage - 1}
+                    </button> :
+                    <button type="button" key={index} onClick={() => onLink(index + 1 + currentPage - 1)} className={`bg-[#151515] rounded hover:bg-[#2f2f2f] w-14 h-14  ${index + 1 + currentPage - 1 === currentPage ? "border-2 border-green-700" : ""}`}>
+                        {index + 1 + currentPage - 1}
+                    </button> 
             }
+
             </div>
             )
         );
     }
-
  
 
     return (
