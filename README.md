@@ -1,4 +1,39 @@
-# Spotichip  
+# Spotichip 
+Work in progress.
+
+## Contributing
+
+
+## Developer Reference
+API used https://developer.spotify.com/documentation/web-api/reference/#/
+
+
+## Directory Structure
+
+
+├── config    
+├── context   
+├── hooks    
+├── routes    
+├── services     
+├── store    
+├── styles  
+├── types  
+├── utils          
+├── views                                                                     # Anything to do with UI  
+│   ├── [atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms)          # Used for building blocks i.e button, input   
+│   └── [molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules)  # Made from atoms i.e search bar  
+│   └── [organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms)  # Complex UI components i.e carousel   
+│   └── [pages](https://atomicdesign.bradfrost.com/chapter-2/#pages)          # Respresents a page  
+└── ...
+
+Notes: Views follows [Brad Frosts Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/).  
+
+
+
+
+
+==========
 
 Work In Progress
 
@@ -28,7 +63,7 @@ Top level of the directory struture inside `src`
 - [`/styles`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/styles) - cSS/Scss  
 - [`/types`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/types) - TypeScript types
 - [`/utils`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/utils) - Utilities, helpers and like - used globaly withing the app  
-- [`/views`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/views) - Another word for `pages` or `screens` that contains the majority of app, that include pages and components 
+- [`/views`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/views) - contains app UI
 
 
 - [`App`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/App.tsx)    - Used as a file that gets passed to index
@@ -68,6 +103,10 @@ Default gutter: 8
 - Auto load files - https://www.npmjs.com/package/dot-index-webpack-plugin  
 - Add meta data and title to each page that needs it, create dynamic react component - use https://www.npmjs.com/package/react-helmet  
 
+
+
+
+
 ## Available Scripts
 
 In the project directory, you can run:
@@ -91,7 +130,6 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
