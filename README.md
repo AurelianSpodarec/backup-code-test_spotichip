@@ -1,94 +1,101 @@
 # Spotichip 
 Work in progress.
 
-## Contributing
-
-
 ## Developer Reference
+
 API used https://developer.spotify.com/documentation/web-api/reference/#/
+
+## Git Workflow
+
+Master Branch - ultimate source of truth for live app    
+Staging Branch- pre-live work for testing   
+Dev/feature/es - features developed  
+
+### Methodology when commiting
+
+Workflow when commiting or pushing, written by [Robin  Wieruch](https://www.robinwieruch.de/git-team-workflow/)
+
+- feat - actual feature implementation  
+- style - code style and code clean up  
+- test - actual test implementation  
+- fix - bug fix  
+- refactor - refactoring that doesn't affect the behavior of the code  
+- chore - no production code changes, but more like configuration and setup  
+
+Commit message could look like the following:  
+
+- feat(users) add authentication  
+- fix(logout) clean up cookie  
+- test(login) cookie set with access token  
+- style(*) fix indentation  
+- chore(.gitignore) add .env file  
 
 
 ## Directory Structure
 
 The actual files of a software projects are stored in the `src` folder. 
 
+The project UI and views rely on Atomic desing principle by [Brad Frosts - Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/)  
+[Atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms)   
+[Molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules)  
+[Organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms)  
+[Pages](https://atomicdesign.bradfrost.com/chapter-2/#pages)  
+
 ### src
 
-```
-├── /config    
+```/src
+├── /config         # Text for the app
 ├── /context   
 ├── /hooks    
-├── /routes    
-├── /services     
-├── /store    
+├── /routes      
+├── /services       # Requests and API
+├── /store          # Global Redux store
 ├── /styles  
 ├── /types  
-├── /utils          
-├── /views                                                                    # Anything to do with UI  
-│   ├── [atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms)          # Used for building blocks i.e button, input   
-│   └── [molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules)  # Made from atoms i.e search bar  
-│   └── [organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms)  # Complex UI components i.e carousel   
-│   └── [pages](https://atomicdesign.bradfrost.com/chapter-2/#pages)          # Respresents a page  
+├── /utils          # Common used functions
+├── /views          # Anything to do with UI  
+│   ├── atoms]      # Used for building blocks i.e button, input   
+│   └── molecules   # Made from atoms i.e search bar  
+│   └── organisms   # Complex UI components i.e carousel   
+│   └── pages       # Respresents a page  
 ```
-
-Note: Views follows [Brad Frosts Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/).  
-
 
 ### Styles
 
 Because the folders are a mess, I put a prefix to put some order on them for easier redability.
 
-```
-├── /0-vendor       # 3rd party libraries i.e tailwindcss
-├── /1-helpers      # mixins 
-├── /2-base         # global styles
-├── /3-layouts      # global layouts such as: header, footer, nav, sidebar
-├── /4-atoms        # Used for building blocks i.e button, input   
-├── /5-molecules    # Complex UI components i.e carousel   
-├── cheat           # hot fixes - should be cleaned once a while
-├── styles          # imports all above
+``` 
+/styles  
+├── /0-vendor       # 3rd party libraries i.e tailwindcss   
+├── /1-helpers      # mixins   
+├── /2-base         # global styles   
+├── /3-layouts      # global layouts such as: header, footer, nav, sidebar  
+├── /4-atoms        # Used for building blocks i.e button, input     
+├── /5-molecules    # Complex UI components i.e carousel     
+├── cheat           # hot fixes - should be cleaned once a while  
+├── styles          # imports all above  
  
 ```
 
-Note: Styles also follow [Brad Frosts Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/).  
+## Learning
 
- 
-==========
+Talks about naming and conventions.  
 
-Work In Progress
-
-## Git Workflow
-
-Master - live work   
-Staging - pre-live work for testing  
-Dev - branch to save files to  
-
-## Directory Structure  
- 
- 
-### Views structure  
-The views structure follows a REST naming;  
-
-Great URL links:  
-https://github.com/adamwathan/laracon2017  
-https://www.youtube.com/watch?v=MF0jFKvS4SI  
-https://restfulapi.net/resource-naming/  
+https://github.com/adamwathan/laracon2017    
+https://www.youtube.com/watch?v=MF0jFKvS4SI    
+https://restfulapi.net/resource-naming/    
 
 
+## Design Guide
 
-## Design  
-
-Spotify TailwindCSS Values  
-Default gutter: 8  
+Brand color:  
+Default gutter: 8   
 
 ## TODO
-- Add testing  
-- Improve SEO  
+- Add testing   
+- Improve SEO    
 - Auto load files - https://www.npmjs.com/package/dot-index-webpack-plugin  
 - Add meta data and title to each page that needs it, create dynamic react component - use https://www.npmjs.com/package/react-helmet  
-
-
-
 
 
 ## Available Scripts
