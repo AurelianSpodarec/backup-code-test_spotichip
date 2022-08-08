@@ -2,13 +2,13 @@
 
 Work In Progress
 
-## Dev Notes  
+## Git Workflow
 
-
-Atomic Design Principles  
+Master - live work   
+Staging - pre-live work for testing  
+Dev - branch to save files to  
 
 ## Directory Structure  
-
 
 https://bradfrost.com/blog/post/atomic-web-design/  
 
@@ -18,7 +18,7 @@ This goes for the entire application, weather were talking about programming/fun
 
 Top level of the directory struture inside `src`  
 
-- [`/components`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/components) - reusable global components, such as but not limited to button, input, card, container  
+ 
 - [`/config`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/config) - settings for the app stores in a JS object  
 - [`/context`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/context) - global Context  
 - [`/hooks`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/hooks) - custom hooks  
@@ -28,7 +28,9 @@ Top level of the directory struture inside `src`
 - [`/styles`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/styles) - cSS/Scss  
 - [`/types`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/types) - TypeScript types
 - [`/utils`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/utils) - Utilities, helpers and like - used globaly withing the app  
-- [`/views`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/views) - Another word for `pages` or `screens` that contains the majority of app  
+- [`/views`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/views) - Another word for `pages` or `screens` that contains the majority of app, that include pages and components 
+
+
 - [`App`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/App.tsx)    - Used as a file that gets passed to index
 - [`Index`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/index.tsx) - Connects Redux, stric mode etc...
 
