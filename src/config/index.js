@@ -1,1 +1,5 @@
-// silence is golden;
+import configCategories from "./categories"
+
+export {
+    configCategories
+}

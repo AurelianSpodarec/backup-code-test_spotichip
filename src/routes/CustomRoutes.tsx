@@ -1,9 +1,10 @@
 import { useRoutes } from "react-router-dom";
 
 import NotFound from "views/pages/NotFound/NotFound";
+ 
 import Home from "views/pages/Home/Home";
-import ListSearch from "views/pages/Search";
 
+import routesSearch  from "./routes/search"
 import routesArtist from "./routes/artist";
 import routesGenre from "./routes/genre";
 import routesPlaylist from "./routes/playlist"
@@ -22,10 +23,7 @@ function CustomRoutes() {
             path: "/",
             element: <Home />
         },
-        {
-            path: "/search",
-            element: <ListSearch />
-        },
+        ...routesSearch,
         ...routesGenre,
         ...routesPlaylist,
         ...routesArtist

@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import globalReducer from './slices/global/globalSlice';
+import searchReducer from './slices/search/search';
 
 export const store = configureStore({
     reducer: {
         global: globalReducer,
+        search: searchReducer
     },
 })
 

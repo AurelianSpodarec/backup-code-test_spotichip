@@ -41,37 +41,15 @@ function ListPlaylist() {
         fetchCategories()
     }, [])
     
-    // TODO: Extract into its own component
-    function RenderCategoriesListing() {
-        if(playlistsFetchStatus === "fetching") {
-            return [...Array(9)].map((_, index) => {
-                return (
-                <Card2
-                    key={index}
-                    fetchStatus={playlistsFetchStatus}
-                />
-                )
-            })
-        } else if (playlistsFetchStatus === "success") {
-            return playlists && playlists.items && playlists.items.map((category:IPlaylist, index:number) => {
-                return (
-                <Card2
-                    key={index} // @ts-ignore
-                    data={category} 
-                    fetchStatus={playlistsFetchStatus}
-                />
-                )
-            })
-        } else if(playlistsFetchStatus === "failure") {
-            return <h1>No playlists found ;-(</h1>
-        } 
-    }
-
     return (
         <Shelf title="Top 10 Playlists">
             {
                 // @ts-ignore
-            } <RenderCategoriesListing />
+            } 
+            <ListPlaylist //@ts-ignore
+                fetchStatus={playlistsFetchStatus}
+                data={playlists}
+            />
         </Shelf>
     )
 }

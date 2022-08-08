@@ -102,6 +102,8 @@ https://github.com/adamwathan/laracon2017
 https://www.youtube.com/watch?v=MF0jFKvS4SI    
 https://restfulapi.net/resource-naming/    
 
+Nice article
+https://betterprogramming.pub/avoiding-premature-software-abstractions-8ba2e990930a
 
 ## Design Guide
 
