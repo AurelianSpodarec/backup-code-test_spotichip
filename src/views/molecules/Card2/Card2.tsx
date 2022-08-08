@@ -1,4 +1,6 @@
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setClickedPlay, setClickedPlayOpen } from "store/slices/global/globalSlice";
 import { capitalizeFirstLetter } from "utils/common";
 
 interface Card2Props {
@@ -18,9 +20,13 @@ interface Card2Props {
 
 function Card2(props:Card2Props) {
     const { data, fetchStatus, canDelete } = props;
-   
+
+    const dispatch = useDispatch()
+
     function handlePlayClick(e:any) {
         e.preventDefault()
+        dispatch(setClickedPlayOpen())
+        dispatch(setClickedPlay(data))
     }
     
     if(fetchStatus === "fetching") {

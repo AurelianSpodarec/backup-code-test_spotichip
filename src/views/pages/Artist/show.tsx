@@ -8,7 +8,7 @@ function ShowArtist() {
 
     return (
         <div>
-
+            
         </div>
     )
 }

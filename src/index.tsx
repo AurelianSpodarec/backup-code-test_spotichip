@@ -1,9 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import App from 'App';
+import {  useDispatch, Provider } from 'react-redux'
+
 
 import './styles/styles.scss';
 import reportWebVitals from 'utils/reportWebVitals';
+import { store } from 'store/store';
 
 
 const root = ReactDOM.createRoot( 
@@ -13,7 +16,9 @@ const root = ReactDOM.createRoot(
 
 root.render(
     <React.StrictMode>  
-        <App />
+        <Provider store={store}>
+            <App />
+        </Provider>
     </React.StrictMode>
 );
 
