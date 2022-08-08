@@ -47,7 +47,7 @@ function ListSearch() {
     function setCategory(category:any) {
         dispatch(setSearchCategory(category.slug))
 
-        const nextURL = `http://localhost:3000/search/${search.input}/${category.slug}`;
+        const nextURL = `${window.location.origin}/search/${search.input}/${category.slug}`;
         window.history.replaceState(null, "", nextURL)
     }
 
@@ -118,7 +118,7 @@ function ListSearch() {
         if(search.input === "") {
             dispatch(setSearchCategory(""))
 
-            const nextURL = `http://localhost:3000/search`;
+            const nextURL = `${window.location.origin}/search`;
             window.history.replaceState(null, "", nextURL)
         }
     }

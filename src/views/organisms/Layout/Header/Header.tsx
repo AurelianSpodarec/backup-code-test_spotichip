@@ -27,9 +27,8 @@ function Header() {
 
     function onValueChange(e:any) {
         // TODO: Debounce every 300ms with loaddash
-        dispatch(setSearchInput(e.target.value))
-
-        const nextURL = `http://localhost:3000/search/${e.target.value}/${search.category}`;
+        dispatch(setSearchInput(e.target.value)) 
+        const nextURL = `${window.location.origin}/search/${e.target.value}/${search.category}`;
         window.history.replaceState(null, "", nextURL)
     }
 
