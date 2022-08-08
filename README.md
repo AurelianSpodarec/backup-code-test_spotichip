@@ -10,29 +10,49 @@ API used https://developer.spotify.com/documentation/web-api/reference/#/
 
 ## Directory Structure
 
+The actual files of a software projects are stored in the `src` folder. 
 
-├── config    
-├── context   
-├── hooks    
-├── routes    
-├── services     
-├── store    
-├── styles  
-├── types  
-├── utils          
-├── views                                                                     # Anything to do with UI  
+### src
+
+```
+├── /config    
+├── /context   
+├── /hooks    
+├── /routes    
+├── /services     
+├── /store    
+├── /styles  
+├── /types  
+├── /utils          
+├── /views                                                                    # Anything to do with UI  
 │   ├── [atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms)          # Used for building blocks i.e button, input   
 │   └── [molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules)  # Made from atoms i.e search bar  
 │   └── [organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms)  # Complex UI components i.e carousel   
 │   └── [pages](https://atomicdesign.bradfrost.com/chapter-2/#pages)          # Respresents a page  
-└── ...
+```
 
-Notes: Views follows [Brad Frosts Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/).  
-
-
+Note: Views follows [Brad Frosts Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/).  
 
 
+### Styles
 
+Because the folders are a mess, I put a prefix to put some order on them for easier redability.
+
+```
+├── /0-vendor       # 3rd party libraries i.e tailwindcss
+├── /1-helpers      # mixins 
+├── /2-base         # global styles
+├── /3-layouts      # global layouts such as: header, footer, nav, sidebar
+├── /4-atoms        # Used for building blocks i.e button, input   
+├── /5-molecules    # Complex UI components i.e carousel   
+├── cheat           # hot fixes - should be cleaned once a while
+├── styles          # imports all above
+ 
+```
+
+Note: Styles also follow [Brad Frosts Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/).  
+
+ 
 ==========
 
 Work In Progress
@@ -44,31 +64,8 @@ Staging - pre-live work for testing
 Dev - branch to save files to  
 
 ## Directory Structure  
-
-https://bradfrost.com/blog/post/atomic-web-design/  
-
-This goes for the entire application, weather were talking about programming/functional programming or css  
-
-### `src`  
-
-Top level of the directory struture inside `src`  
-
  
-- [`/config`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/config) - settings for the app stores in a JS object  
-- [`/context`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/context) - global Context  
-- [`/hooks`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/hooks) - custom hooks  
-- [`/routes`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/routes) - applicatoin routes  
-- [`/services`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/services) - stores requests and api functions  
-- [`/store`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/store) - global Redux store  
-- [`/styles`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/styles) - cSS/Scss  
-- [`/types`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/types) - TypeScript types
-- [`/utils`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/utils) - Utilities, helpers and like - used globaly withing the app  
-- [`/views`](https://github.com/AurelianSpodarec/spotichip-react/tree/dev/src/views) - contains app UI
-
-
-- [`App`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/App.tsx)    - Used as a file that gets passed to index
-- [`Index`](https://github.com/AurelianSpodarec/spotichip-react/blob/dev/src/index.tsx) - Connects Redux, stric mode etc...
-
+ 
 ### Views structure  
 The views structure follows a REST naming;  
 
@@ -77,19 +74,6 @@ https://github.com/adamwathan/laracon2017
 https://www.youtube.com/watch?v=MF0jFKvS4SI  
 https://restfulapi.net/resource-naming/  
 
-## Styles  
-
-Because the styles need to be in order when you load them, I prefer to name them with a prefix of a number, so the folder structure looks in the correct order
-
-https://bradfrost.com/blog/post/atomic-web-design/  
-
-- `/0-lib` - third party libraries such as tailwindcss and alike  
-- `/1-helpers` - mixins  
-- `/2-base` - global styles   
-- `/3-layouts` - global layouts such as header, footer, navigation that are used though the app  
-- `/4-objects` - molecules that build components, can include button, input and so on    
-- `/5-components` - molecules give us building blocks to create organisms, such as: carousels, product grid, search form  
-- `cheat` - any quick fix should go to this file  
 
 
 ## Design  
