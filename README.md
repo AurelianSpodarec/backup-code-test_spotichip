@@ -45,6 +45,7 @@ The project UI and views rely on Atomic desing principle by [Brad Frosts - Atomi
 
 ```
 /src
+├── /__tests__      
 ├── /config         # Text for the app
 ├── /context   
 ├── /hooks    
