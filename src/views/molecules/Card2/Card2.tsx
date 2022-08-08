@@ -2,9 +2,11 @@ import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setClickedPlay, setClickedPlayOpen } from "store/slices/global/globalSlice";
 import { capitalizeFirstLetter } from "utils/common";
+import { removeRecentSearchItem, setRecentSearchItem } from "store/slices/search/search";
 
 interface Card2Props {
     canDelete?: boolean;
+    onClick?: any;
     data?: {
         id: number;
         name: string;
@@ -23,12 +25,23 @@ function Card2(props:Card2Props) {
 
     const dispatch = useDispatch()
 
+    function handleRemove(e:any) {
+        e.preventDefault();
+        e.stopPropagation()
+        dispatch(removeRecentSearchItem(data))
+    }
+
     function handlePlayClick(e:any) {
         e.preventDefault()
+        e.stopPropagation()
         dispatch(setClickedPlayOpen())
         dispatch(setClickedPlay(data))
     }
     
+    function handlerSetRecentSearch(item:{}) {
+        dispatch(setRecentSearchItem(item))
+    }
+
     if(fetchStatus === "fetching") {
         return (
             <div className="w-full h-24 border-2 rounded-md mx-auto mt-20">
@@ -45,12 +58,12 @@ function Card2(props:Card2Props) {
             </div>
         )
     } else { 
-        return (
-            <div className="group transition-all duration-200 ease-in  relative rounded-lg overflow-hidden bg-[#181818] hover:bg-[#282828]">
+        return (// @ts-ignore
+            <div onClick={() => handlerSetRecentSearch(data && data)} className="group transition-all duration-200 ease-in  relative rounded-lg overflow-hidden bg-[#181818] hover:bg-[#282828]">
             <Link to={`/${data && data.type}/${data && data.id}`} state={data && data} className="block p-4">
 
                 {canDelete && 
-                    <button className="absolute top-2 right-2 cursor-default rounded-full bg-black/30 p-1.5 z-10 hover:scale-110" aria-label="Remove">
+                    <button onClick={(e) => handleRemove(e)} className="absolute top-2 right-2 cursor-default rounded-full bg-black/30 p-1.5 z-10 hover:scale-110" aria-label="Remove">
                         <svg className="text-white fill-white" role="img" height="16" width="16" viewBox="0 0 16 16">
                             <path d="M1.47 1.47a.75.75 0 011.06 0L8 6.94l5.47-5.47a.75.75 0 111.06 1.06L9.06 8l5.47 5.47a.75.75 0 11-1.06 1.06L8 9.06l-5.47 5.47a.75.75 0 01-1.06-1.06L6.94 8 1.47 2.53a.75.75 0 010-1.06z"></path>
                         </svg>

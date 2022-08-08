@@ -1,6 +1,6 @@
 import react, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { setSearchCategory, setSearchInput } from "store/slices/search/search";
+import { setRecentSearchItem, setSearchCategory, setSearchInput } from "store/slices/search/search";
 
 import { configCategories } from "config";
 import { getBrowseCategories } from "services/spotify/api/categories/categories";
@@ -86,11 +86,10 @@ function ListSearch() {
         } 
     }
 
+  
     function RenderRecentSearch() {
         return (
             <Shelf title="Recent Searches" linkText="See all" link="/recent-searches">
-            <div className="grid gap-6 grid-cols-6">
-
                 {search.recentSearches.slice(0, 6).map((item:any) => {
                         return (
                             <Card2 
@@ -102,8 +101,6 @@ function ListSearch() {
                         )
                     })
                 }
-
-            </div>
             </Shelf>
         )
     }
@@ -135,20 +132,18 @@ function ListSearch() {
             }
 
             {search.category === "playlist" && 
-            <>
-            hi
                 <Shelf>
                     <ListPlaylist data={search.data} fetchStatus="success"/>
                 </Shelf>
-            </>
             }
-            
+
+
+            {search && search.recentSearches.length !== 0 && 
+                    <RenderRecentSearch  />
+            }
+
             {search.category === "" &&
             <>
-
-                {search && search.recentSearches.length !== 0 && 
-                    <RenderRecentSearch />
-                }
 
                 <Shelf title="Browse all" className="genre-list">
                     <RenderCategoriesListing />
