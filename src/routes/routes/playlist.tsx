@@ -10,4 +10,12 @@ export default [
         path: "/playlist/:id",
         element: <ShowPlaylist />
     },
+    // {
+    //     path: "/browse/featured-playlists",
+    //     element: <ShowPlaylist />
+    // }
+    // {
+    //     path: "/users/:id/playlists",
+    //     element: <CreatePlaylist />
+    // },
 ]

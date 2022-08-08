@@ -31,7 +31,7 @@ function Shelf(props:Props) {
                 </header>
             }
             
-            <section className="grid gap-6 p-8 grid-cols-6">
+            <section className="grid gap-6 grid-cols-2 lg:grid-cols-6 p-8">
                 {children}
             </section>
         </div>

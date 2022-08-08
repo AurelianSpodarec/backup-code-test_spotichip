@@ -3,12 +3,12 @@ import { HistoryButtons, Nav, SearchBar } from "./sub-components"
 
 function Header() {
     return (
-        <header className="sticky z-30 top-0 right-0 left-0 h-[64px] bg-[#121212]">
-        <div className="flex justify-between w-full px-8 py-3">
+        <header className="hidden lg:block sticky justify-centerz-30 z-30 top-0 right-0 left-0 h-[58px] bg-[#070707]">
+        <div className="flex justify-between w-full px-8 h-full items-center">
 
             <div className="flex items-center">
                 <HistoryButtons />
-                <SearchBar />
+                {/* <SearchBar /> */}
             </div>
 
             <Nav />

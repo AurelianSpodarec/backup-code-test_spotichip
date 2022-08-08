@@ -1,65 +1,74 @@
 import { Card, Shelf } from "components";
+import Card2 from "components/Card2/Card2";
 import { useEffect, useState } from "react";
 import { getFeaturedPlaylists } from "services/spotify/api/playlist/playlist";
+import { IPlaylist } from "types";
 
-const CATEGORIES_LIST_STATES = {
+const PLAYLISTS_LIST_STATES = {
     fetching: 'fetching',
     success: 'success',
     failure: 'failure',
 }
 
+interface IRes {
+    href: string;
+    items?: [IPlaylist];
+    limit: number;
+    next?: string;
+    offset: number;
+    previous?: string;
+    total: number;
+}
 function ListPlaylist() {
-
-    const [categories, setCategories] = useState([]);
-    const [categoriesFetchStatus, setCategoriesFetchStatus] = useState(CATEGORIES_LIST_STATES.fetching)
-
+    // @ts-ignore
+    const [playlists, setCategories] = useState<IRes>(undefined);
+    const [playlistsFetchStatus, setPlaylistsFetchStatus] = useState(PLAYLISTS_LIST_STATES.fetching)
     async function fetchCategories() {
         const res = await getFeaturedPlaylists()
-
-        console.log("wwwwwwwwwwww", res)
-        if(res.items && res.items.length === 0) {
-            setCategoriesFetchStatus(CATEGORIES_LIST_STATES.failure)
+        
+        if(res.items && res.playlists.items.length === 0) {
+            setPlaylistsFetchStatus(PLAYLISTS_LIST_STATES.failure)
         } else {
-            setCategoriesFetchStatus(CATEGORIES_LIST_STATES.success)
-            setCategories(res) 
+            setPlaylistsFetchStatus(PLAYLISTS_LIST_STATES.success)
+            console.log("eeeeeeeee",res)
+            setCategories(res.playlists) 
         }
     }
-
+    
     useEffect(() => {
         fetchCategories()
     }, [])
-
+    
+    // TODO: Extract into its own component
     function RenderCategoriesListing() {
-        if(categoriesFetchStatus === "fetching") {
+        if(playlistsFetchStatus === "fetching") {
             return [...Array(9)].map((_, index) => {
-                return ( // @ts-ignore
-                    // <Card
-                    //     key={index}
-                    //     fetchStatus={categoriesFetchStatus}
-                    // />
-                    <div></div>
+                return (
+                <Card2
+                    key={index}
+                    fetchStatus={playlistsFetchStatus}
+                />
                 )
             })
-        } else if (categoriesFetchStatus === "success") {//@ts-ignore
-            return categories && categories.playlists.items.map((category:{}, index:number) => {
-                return (// @ts-ignore
-                // <Card
-                //     key={index}
-                //     item={category} 
-                //     fetchStatus={categoriesFetchStatus}
-                // />
-                <div>{category.name}</div>
+        } else if (playlistsFetchStatus === "success") {
+            return playlists && playlists.items && playlists.items.map((category:IPlaylist, index:number) => {
+                return (
+                <Card2
+                    key={index} // @ts-ignore
+                    data={category} 
+                    fetchStatus={playlistsFetchStatus}
+                />
                 )
             })
-        } else if(categoriesFetchStatus === "failure") {
-            return <h1>No categories found ;-(</h1>
+        } else if(playlistsFetchStatus === "failure") {
+            return <h1>No playlists found ;-(</h1>
         } 
     }
 
     return (
-        <Shelf>
-            { 
-            //@ts-ignore
+        <Shelf title="Top 10 Playlists">
+            {
+                // @ts-ignore
             } <RenderCategoriesListing />
         </Shelf>
     )

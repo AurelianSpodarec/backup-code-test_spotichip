@@ -18,7 +18,7 @@ interface Card2Props {
 
 function Card2(props:Card2Props) {
     const { data, fetchStatus, canDelete } = props;
-    // console.log(data)
+   
     function handlePlayClick(e:any) {
         e.preventDefault()
     }

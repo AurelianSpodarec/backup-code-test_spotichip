@@ -1,10 +1,10 @@
 function PlayingBar() {
 
-    const fakeIsUserLogged = false;
+    const isUserLogged = false;
 
-    if(fakeIsUserLogged === false) {
+    if(!isUserLogged) {
         return (
-            <div className="flex h-12 z-20 px-10 py-8" style={{ "backgroundImage": "linear-gradient(90deg, #af2896, #509bf5)" }}>
+            <div className="hidden lg:flex h-12 z-20 px-10 py-8" style={{ "backgroundImage": "linear-gradient(90deg, #af2896, #509bf5)" }}>
             <div className="flex justify-between items-center w-full">
     
                 {/* <Link to="/signup"> */}

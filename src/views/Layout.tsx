@@ -19,17 +19,17 @@ function Layout() {
 
                     <div className="relative h-full w-full">
                     <div className="default-scrollbar absolute top-0 right-0 bottom-0 left-0 overflow-hidden overflow-y-auto">
-                    <div>
+                 
 
                         <Header />
 
-                        <main className="bg-[#121212]">
+                        <main className="h-full bg-[#121212]">
                             <CustomRoutes />
                         </main>
 
                         <Footer />
 
-                    </div>
+            
                     </div>
                     </div>
 
