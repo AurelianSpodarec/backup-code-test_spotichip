@@ -36,10 +36,10 @@ Commit message could look like the following:
 The actual files of a software projects are stored in the `src` folder. 
 
 The project UI and views rely on Atomic desing principle by [Brad Frosts - Atomic desng principles](https://bradfrost.com/blog/post/atomic-web-design/)  
-[Atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms) - Building blocks
-[Molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules) - Small component
-[Organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms) - Complex component
-[Pages](https://atomicdesign.bradfrost.com/chapter-2/#pages) - A web page
+[Atoms](https://atomicdesign.bradfrost.com/chapter-2/#atoms) - Building blocks  
+[Molecules](https://atomicdesign.bradfrost.com/chapter-2/#molecules) - Small component  
+[Organisms](https://atomicdesign.bradfrost.com/chapter-2/#organisms) - Complex component  
+[Pages](https://atomicdesign.bradfrost.com/chapter-2/#pages) - A web page  
 
 ### src
 
@@ -63,7 +63,16 @@ The project UI and views rely on Atomic desing principle by [Brad Frosts - Atomi
 
 ### Styles
 
-Because the folders are a mess, I put a prefix to put some order on them for easier redability.
+On a TailwindCSS styles in a folder aren't as used.   
+
+To configure constants or styling of the website, check `tailwind.config.js` file for any configuration. 
+
+Instead of using variables in Scss, tailwindcss does all of that for us, automatic with a good naming convention for styles.  
+
+
+If needed, we can always write CSS(Scss) 
+ 
+Because the folders are a mess, I put a prefix to put some order on them for easier redability.  
 
 ``` 
 /styles  
@@ -77,6 +86,12 @@ Because the folders are a mess, I put a prefix to put some order on them for eas
 ├── styles          # imports all above  
  
 ```
+
+Some worth mentionds to popular CSS methodologies when working without TailwindCSS.
+
+[BEM](http://getbem.com/) - Block Element Modified  
+[SMACSS](http://smacss.com/) - Scalable and Modular Architecture for CSS  
+OOCSS - Object Oriented CSS  
 
 ## Learning
 
